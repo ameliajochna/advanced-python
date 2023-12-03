@@ -1,7 +1,6 @@
 # Advanced Python
 
-This repository contains scripts in Python wrote for my Computer Science course
-"Advanced Python" in University of Wrocław.
+This repository contains scripts in Python implemented for my Computer Science course "Advanced Python" in University of Wrocław.
 
 ## Drawings made using Turtle:
 
