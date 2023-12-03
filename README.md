@@ -29,6 +29,12 @@ Board of small squares randomly filled with colors, given areas are darker or br
 
 
 
+Picture drawn using small squares:
+
+![cow](https://github.com/ameliajochna/advanced-python/assets/62848107/e077f4b7-3fbd-4297-b61f-5836364097d3)
+
+
+
 Creating a number representation using flower bouquet, red flower represents first
 digit, then going clockwise. Example for 59257:
 
