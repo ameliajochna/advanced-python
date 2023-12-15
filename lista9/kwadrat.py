@@ -1,12 +1,24 @@
 #################################################
 # kwadrat.py
 #################################################
-                                 
-from turtle import *
+
+from turtle import (
+    begin_fill,
+    end_fill,
+    fd,
+    fillcolor,
+    goto,
+    pd,
+    pu,
+    rt,
+    speed,
+    tracer,
+)
 
 BOK = 15
 SX = -100
 SY = 0
+
 
 def kwadrat(x, y, kolor):
     fillcolor(kolor)
@@ -17,17 +29,17 @@ def kwadrat(x, y, kolor):
     for i in range(4):
         fd(BOK)
         rt(90)
-    end_fill() 
+    end_fill()
 
-tracer(0,1)
-print ('Zmienna __name__ =', __name__)    
+
+tracer(0, 1)
+print('Zmienna __name__ =', __name__)
 
 if __name__ == '__main__':
-    speed('fastest')    
+    speed('fastest')
     kolory = ['red', 'green', 'blue']
-        
-    for i in range(10):
-        kwadrat(i,i, kolory[i % 3])    
 
-    
-    input()    
+    for i in range(10):
+        kwadrat(i, i, kolory[i % 3])
+
+    input()

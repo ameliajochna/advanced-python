@@ -26,7 +26,7 @@ def find_puzzle(name):
                         for w1 in pol_dict[w]:
                             for d1 in pol_dict[d]:
                                 for l2 in pol_dict[last_word]:
-                                    if w1<d1 and d1<l2:
+                                    if w1 < d1 and d1 < l2:
                                         print(w1, d1, l2)
 
 
