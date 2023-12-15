@@ -8,22 +8,26 @@ def make_dict():
         x = x.strip()
         pol = x
         sorted_pol = ('').join(sorted(pol))
-        if pol not in pol_dict:
-            pol_dict[sorted_pol] = pol
+        if sorted_pol not in pol_dict:
+            pol_dict[sorted_pol] = [pol]
+        else:
+            pol_dict[sorted_pol] += [pol]
 
 
 def find_puzzle(name):
     name = name.replace(' ', '').lower()
     for w in pol_dict:
-        word1 = pol_dict[w]
-        if doable(name, word1):
-            new_base = use_letters(name, word1)
+        if doable(name, w):
+            new_base = use_letters(name, w)
             for d in pol_dict:
-                word2 = pol_dict[d]
-                if word1 < word2 and doable(new_base, word2):
-                    last_word = use_letters(new_base, word2)
+                if doable(new_base, d):
+                    last_word = use_letters(new_base, d)
                     if last_word in pol_dict:
-                        print(word1, word2, pol_dict[last_word])
+                        for w1 in pol_dict[w]:
+                            for d1 in pol_dict[d]:
+                                for l2 in pol_dict[last_word]:
+                                    if w1<d1 and d1<l2:
+                                        print(w1, d1, l2)
 
 
 make_dict()
