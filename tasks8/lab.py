@@ -32,7 +32,15 @@ def generate_list(n, predicate):
 
 def pythagorean_triplets(n):
     return [
-        (i, j, k) for k in range(1, n) for i in range(1, n) for j in range(1, n) if i < j and i * i + j * j == k * k
+        (
+            i,
+            j,
+            k,
+        )
+        for k in range(1, n)
+        for i in range(1, n)
+        for j in range(1, n)
+        if i < j and i * i + j * j == k * k
     ]
 
 
