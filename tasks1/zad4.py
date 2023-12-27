@@ -3,7 +3,7 @@ from tasks1.generate_fragments import generate_fragment
 
 def generate_password(n: int) -> str:
     if n == 0:
-        return "" 
+        return ""
 
     fragment = generate_fragment()
     while len(fragment) > n or n - len(fragment) == 1:

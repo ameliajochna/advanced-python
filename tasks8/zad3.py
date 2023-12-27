@@ -1,4 +1,4 @@
-from zad2 import doable, use_letters
+from tasks8.zad2 import doable, use_letters
 
 
 def make_dict():
