@@ -15,5 +15,5 @@ def main():
     print(randperm(10**6))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

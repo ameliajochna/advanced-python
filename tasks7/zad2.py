@@ -15,24 +15,24 @@ def square(a, color, t):
 
 
 def randomize(content):
-    cnt = content.count('\n') + 1
-    content = content.replace('\n', ' ').split(' ')
+    cnt = content.count("\n") + 1
+    content = content.replace("\n", " ").split(" ")
     row_len = int(len(content) / cnt)
     random.shuffle(content)
     cur_len = 0
-    cur_row = ''
+    cur_row = ""
     ans = []
     for t in content:
         if cur_len == row_len:
             ans += [[cur_row]]
-            print('ROW:', cur_row)
+            print("ROW:", cur_row)
             cur_len = 0
-            cur_row = ''
+            cur_row = ""
 
         cur_row += t
         cur_len += 1
         if cur_len != 3:
-            cur_row += ' '
+            cur_row += " "
     ans += [[cur_row]]
     return ans
 
@@ -41,7 +41,7 @@ def read_file(path, t):
     f = open(path)
     content = randomize(f.read())
     for line in content:
-        arr = line[0].split(' ')
+        arr = line[0].split(" ")
         print(arr)
         for w in arr:
             square(SQUARE_WIDTH, eval(w), t)
@@ -63,10 +63,10 @@ def main():
 
     screen.colormode(255)
 
-    read_file('img1.txt', t)
+    read_file("img1.txt", t)
 
     screen.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

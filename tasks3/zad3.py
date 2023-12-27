@@ -1,10 +1,10 @@
 def remove_brackets(tekst):
     bracket = False
-    wynik = ''
+    wynik = ""
     for t in tekst:
-        if t == '(':
+        if t == "(":
             bracket = True
-        elif t == ')':
+        elif t == ")":
             bracket = False
         elif not bracket:
             wynik += t

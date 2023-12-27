@@ -24,5 +24,5 @@ def main():
     print(usun_duplikaty([1, 2, 3, 1, 2, 3, 8, 2, 2, 2, 9, 9, 4]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

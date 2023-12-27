@@ -34,8 +34,8 @@ def kwadrat(x, y, kolor):
 
 def main():
     tracer(0, 1)
-    speed('fastest')
-    kolory = ['red', 'green', 'blue']
+    speed("fastest")
+    kolory = ["red", "green", "blue"]
 
     for i in range(10):
         kwadrat(i, i, kolory[i % 3])
@@ -43,5 +43,5 @@ def main():
     input()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

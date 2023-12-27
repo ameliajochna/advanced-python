@@ -1,4 +1,4 @@
-FILE_PATH = './popular_words.txt'
+FILE_PATH = "./popular_words.txt"
 
 
 def get_words():
@@ -22,5 +22,5 @@ def main():
     find_paired_words()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

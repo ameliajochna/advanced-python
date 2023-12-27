@@ -15,9 +15,9 @@ def square(a, color, t):
 
 def read_file(path, t):
     f = open(path)
-    content = f.read().split('\n')
+    content = f.read().split("\n")
     for line in content:
-        arr = line.split(' ')
+        arr = line.split(" ")
         for w in arr:
             square(SQUARE_WIDTH, eval(w), t)
             t.forward(SQUARE_WIDTH)
@@ -41,12 +41,12 @@ def main():
 
     screen.colormode(255)
 
-    read_file('img2.txt')
+    read_file("img2.txt")
 
     t.penup()
 
     screen.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

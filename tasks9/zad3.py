@@ -4,7 +4,7 @@ class fraction:
         self.b = b
 
     def __str__(self):
-        return str(self.a) + '/' + str(self.b)
+        return str(self.a) + "/" + str(self.b)
 
     def euklid_gcd(x, y):
         while y:
@@ -35,5 +35,5 @@ def main():
     print(fraction(5, 1) / fraction(10, 1))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

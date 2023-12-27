@@ -5,13 +5,13 @@ def is_inside(x, y, n):
 def circle(shift, n, usuniecie):
     for i in range(usuniecie, n - usuniecie):
         for j in range(shift):
-            print(' ', end='')
+            print(" ", end="")
         for j in range(0, n):
             if is_inside(i, j, n):
-                print('#', end='')
+                print("#", end="")
             else:
-                print(' ', end='')
-        print('')
+                print(" ", end="")
+        print("")
 
 
 def snowman(lista):
@@ -23,5 +23,5 @@ def main():
     snowman([15, 17, 23])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

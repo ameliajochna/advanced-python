@@ -4,9 +4,9 @@ import random
 def create_pol_ang():
     pol_ang = {}
 
-    for x in open('pol_ang.txt'):
+    for x in open("pol_ang.txt"):
         x = x.strip()
-        L = x.split('=')
+        L = x.split("=")
         if len(L) != 2:
             continue
 
@@ -20,13 +20,13 @@ def create_pol_ang():
 
 def create_word_count():
     word_count = {}
-    for x in open('brown.txt'):
-        for w in x.replace('\n', ' \n').replace("'", '').replace('"', '').split(' '):
+    for x in open("brown.txt"):
+        for w in x.replace("\n", " \n").replace("'", "").replace('"', "").split(" "):
             w = w.strip().lower()
 
             ok = False
             for c in w:
-                if c >= 'a' and c <= 'z':
+                if c >= "a" and c <= "z":
                     ok = True
 
             if not ok:
@@ -61,7 +61,7 @@ def tlumacz(polskie, pol_ang, word_count):
         if p in pol_ang:
             wynik.append(najpopularniejsze(p, pol_ang, word_count))
         else:
-            wynik.append('[' + p + ']')
+            wynik.append("[" + p + "]")
     return wynik
 
 
@@ -69,10 +69,10 @@ def main():
     pol_ang = create_pol_ang()
     word_count = create_word_count()
 
-    zdanie = 'chłopiec z dziewczyna pójść do kino'.split()
+    zdanie = "chłopiec z dziewczyna pójść do kino".split()
 
-    print(' '.join(tlumacz(zdanie, pol_ang, word_count)))
+    print(" ".join(tlumacz(zdanie, pol_ang, word_count)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

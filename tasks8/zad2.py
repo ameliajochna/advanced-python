@@ -16,7 +16,7 @@ def use_letters(base, word):
         key = c
         b_count.update({key: b_count[key] - 1})
 
-    ans = ''
+    ans = ""
     for c in b_count.keys():
         for i in range(b_count[c]):
             ans += c
@@ -37,9 +37,9 @@ def doable(base, word):
 
 
 def main():
-    print(doable('promotion', 'nopro'))
-    print(doable('promotion', 'lotion'))
+    print(doable("promotion", "nopro"))
+    print(doable("promotion", "lotion"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

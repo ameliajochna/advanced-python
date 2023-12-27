@@ -26,7 +26,7 @@ def generuj_liczby(dlugosc, cyfra, podrzad):
     for liczba in range(0, 10**pozostalo):
         strliczba = str(liczba)
         if len(str(liczba)) != pozostalo:
-            strliczba = '0' * (pozostalo - len(strliczba)) + str(liczba)
+            strliczba = "0" * (pozostalo - len(strliczba)) + str(liczba)
 
         for pt in range(len(strliczba) + 1):
             l1 = strliczba[0:pt]
@@ -43,5 +43,5 @@ def main():
     print(sprawdz(generuj_liczby(9, 7, 7)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -4,9 +4,9 @@ def sum_calibration_values(text):
             [
                 int(c1 + c2)
                 for c1 in word
-                if c1 >= '0' and c1 <= '9'
+                if c1 >= "0" and c1 <= "9"
                 for c2 in reversed(word)
-                if c2 >= '0' and c2 <= '9'
+                if c2 >= "0" and c2 <= "9"
             ][0]
             for word in text
         ]
@@ -14,9 +14,9 @@ def sum_calibration_values(text):
 
 
 def main():
-    f = open('calibration.txt')
+    f = open("calibration.txt")
     print(sum_calibration_values(f.read().splitlines()))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

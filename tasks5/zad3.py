@@ -18,7 +18,7 @@ def rysuj_liczbe(liczba, width, t):
             t.penup()
             t.forward(width / 5)
             t.pendown()
-            if liczba[i][j] == '#':
+            if liczba[i][j] == "#":
                 kwadrat(width / 5, t)
 
         t.penup()
@@ -53,11 +53,11 @@ def main():
     t.goto(-300, 250)
     t.pendown()
 
-    liczba = '2560'
+    liczba = "2560"
     wyznacz_liczby(liczba, t)
 
     screen.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

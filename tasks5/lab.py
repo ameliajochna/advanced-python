@@ -3,23 +3,23 @@ def single_diamond(height, word):
     for i in range(1, height + 1, 2):
         cur_arr = []
         for j in range((height - i) // 2):
-            cur_arr += [' ']
+            cur_arr += [" "]
         for j in range(i):
             cur_arr += [word[j % (len(word))]]
         for j in range((height - i) // 2):
-            cur_arr += [' ']
-        cur_arr += [' ']
+            cur_arr += [" "]
+        cur_arr += [" "]
         arr += [cur_arr]
 
     for i in range(height - 2, 0, -2):
         cur_arr = []
         for j in range((height - i) // 2):
-            cur_arr += [' ']
+            cur_arr += [" "]
         for j in range(i):
             cur_arr += [word[j % (len(word))]]
         for j in range((height - i) // 2):
-            cur_arr += [' ']
-        cur_arr += [' ']
+            cur_arr += [" "]
+        cur_arr += [" "]
         arr += [cur_arr]
 
     return arr
@@ -42,8 +42,8 @@ def word_diamonds(height, sentence):
 
     for w in wynik:
         for x in w:
-            print(x, end='')
-        print(' ')
+            print(x, end="")
+        print(" ")
 
 
 def character_diamonds(height, count, char):
@@ -54,10 +54,10 @@ def character_diamonds(height, count, char):
 
 
 def main():
-    word_diamonds(11, ['diament', 'd', 'word'])
+    word_diamonds(11, ["diament", "d", "word"])
 
-    character_diamonds(11, 4, '*')
+    character_diamonds(11, 4, "*")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

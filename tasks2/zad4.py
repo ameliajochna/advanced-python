@@ -3,7 +3,7 @@ from lista2.big_numbers import give_number
 
 def join_numbers(liczba, cyfra):
     for i in range(len(liczba)):
-        liczba[i] += ' ' + cyfra[i]
+        liczba[i] += " " + cyfra[i]
     return liczba
 
 
@@ -21,8 +21,8 @@ def process_number(number_str):
 
 
 def main():
-    process_number('12324')
+    process_number("12324")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

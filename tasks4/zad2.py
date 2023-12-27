@@ -56,7 +56,7 @@ def ze_spacjami(n, k, znak):
 def histogram(L):
     # 'Wypisuje histogram dla listy L. Liczba z gwiazdkami nie powinna sie sklejac, gwiazdki powinny zaczynac sie w czwartej kolumnie'
     for liczba in L:
-        print(str(liczba) + ' ' + '*' * liczba)
+        print(str(liczba) + " " + "*" * liczba)
 
 
 #
@@ -109,12 +109,12 @@ def madrzejsza(L):  # [!]
     # Implementacja ponizej mocno rozmija sie ze specyfikacja.
 
     madre_slowa = [
-        'istotnie',
-        'zasadniczo',
-        'rudymentalnie',
-        'rustykalnie',
-        'radykalnie',
-        'hej',
+        "istotnie",
+        "zasadniczo",
+        "rudymentalnie",
+        "rustykalnie",
+        "radykalnie",
+        "hej",
     ]
 
     wynik = []
@@ -130,19 +130,19 @@ def madrzejsza(L):  # [!]
 
 L = [1, 2, 3, 4, 5]
 
-print('Dla listy ' + str(L) + ' suma elementow rowna sie')
+print("Dla listy " + str(L) + " suma elementow rowna sie")
 print(suma1(L))
 print(suma2(L))
-print('Jak zsumujemy tylko parzyste, to otrzymamy')
+print("Jak zsumujemy tylko parzyste, to otrzymamy")
 print(suma_parzystych(L))
-print('')
+print("")
 
 H = [1, 2, 3, 4, 5, 6, 7, 4, 8, 4, 8, 2, 2, 1, 10]
-print('Histogram dla listy ' + str(H))
+print("Histogram dla listy " + str(H))
 histogram(H)
-print('')
+print("")
 
-print('Zaczynamy od ' + str(L) + ' i zwiekszamy 4 razy')
+print("Zaczynamy od " + str(L) + " i zwiekszamy 4 razy")
 
 powieksz_liczby(L)
 print(L)  # raczej nie uzywamy srednikow, ale tu nie moglem sie powstrzymac
@@ -156,8 +156,8 @@ print(L)
 L = [1, 2, 3, 4, 5]
 L2 = L[:]
 
-print('')
-print('Zaczynamy od ' + str(L2) + ' i normalizujemy 3 razy')
+print("")
+print("Zaczynamy od " + str(L2) + " i normalizujemy 3 razy")
 
 normalizuj(L2)
 print(L2)
@@ -166,18 +166,18 @@ print(L2)
 normalizuj(L2)
 print(L2)
 
-print('Dlaczego ciagle to samo?')
+print("Dlaczego ciagle to samo?")
 
-print('O, i znowu:')
+print("O, i znowu:")
 
 print(znormalizowana(L))
-print('Oczywiscie mamy ' + str(L) + ' == [1,2,3,4,5]')
+print("Oczywiscie mamy " + str(L) + " == [1,2,3,4,5]")
 
-print('')
-print('Powiekszamy parzyste, pomijamy nieparzyste i wstawiamy 0 po')
+print("")
+print("Powiekszamy parzyste, pomijamy nieparzyste i wstawiamy 0 po")
 print(powiekszone_parzyste_z_zerami(L))
 
 
-print('Cos madrego na zakonczenie:')
-Dane = 'nauka programowania w pythonie wcale nie jest taka trudna'.split(' ')
-print(' '.join(madrzejsza(Dane)))
+print("Cos madrego na zakonczenie:")
+Dane = "nauka programowania w pythonie wcale nie jest taka trudna".split(" ")
+print(" ".join(madrzejsza(Dane)))

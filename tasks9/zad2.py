@@ -3,10 +3,10 @@ from lista9.letters import doable, use_letters
 
 def make_dict():
     pol_dict = {}
-    for x in open('popular_words.txt'):
+    for x in open("popular_words.txt"):
         x = x.strip()
         pol = x
-        sorted_pol = ('').join(sorted(pol))
+        sorted_pol = ("").join(sorted(pol))
         if sorted_pol not in pol_dict:
             pol_dict[sorted_pol] = [pol]
         else:
@@ -15,7 +15,7 @@ def make_dict():
 
 
 def find_puzzle(pol_dict, name):
-    name = name.replace(' ', '').lower()
+    name = name.replace(" ", "").lower()
     for w in pol_dict:
         if doable(name, w):
             new_base = use_letters(name, w)
@@ -32,8 +32,8 @@ def find_puzzle(pol_dict, name):
 
 def main():
     pol_dict = make_dict()
-    find_puzzle(pol_dict, 'Bolek i lolek')
+    find_puzzle(pol_dict, "Bolek i lolek")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

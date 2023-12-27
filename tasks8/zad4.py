@@ -4,7 +4,7 @@ import turtle
 
 import numpy
 
-COLOURS = ['green', (0.5, 1, 0), 'yellow', 'orange', 'red', (0.5, 0, 0)]
+COLOURS = ["green", (0.5, 1, 0), "yellow", "orange", "red", (0.5, 0, 0)]
 MAP_SIZE = 100
 SQUARE_WIDTH = 10
 
@@ -84,5 +84,5 @@ def main():
     screen.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

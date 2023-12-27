@@ -27,11 +27,11 @@ def bukiet(n, t):
         t.forward(200)
 
         if i == 0:
-            t.pencolor('red')
+            t.pencolor("red")
 
         flower(int(c) + 3, t)
 
-        t.pencolor('black')
+        t.pencolor("black")
 
         t.backward(200)
         t.rt(360 / N)
@@ -44,10 +44,10 @@ def main():
     t.setposition(0, 0)
     t.speed(0)
 
-    bukiet('59257', t)
+    bukiet("59257", t)
 
     screen.mainloop()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

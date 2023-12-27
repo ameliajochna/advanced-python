@@ -29,5 +29,5 @@ def main():
     palindromy(0, 1000, prime, max_n)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

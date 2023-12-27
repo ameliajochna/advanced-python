@@ -111,10 +111,10 @@ question_mark = """
 
 
 def fix(s):
-    L = s.split('\n')
+    L = s.split("\n")
     for i in range(len(L)):
         if len(L[i]) < 5:
-            L[i] += (5 - len(L[i])) * ' '
+            L[i] += (5 - len(L[i])) * " "
         else:
             L[i] = L[i][:5]
     return L[1:-1]
