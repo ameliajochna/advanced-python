@@ -1,5 +1,5 @@
 def main():
-    fact_digits = []
+    fact_digits = [] 
     fact_value = 1
     for i in range(1, 101):
         fact_value *= i
