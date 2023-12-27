@@ -11,7 +11,9 @@ def randperm(n):
     return perm
 
 
-# for i in range(0, 9):
-#     print(randperm(i))
+def main():
+    print(randperm(10**6))
 
-print(randperm(10**6))
+
+if __name__ == '__main__':
+    main()

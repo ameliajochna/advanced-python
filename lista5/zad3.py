@@ -1,13 +1,10 @@
 import random
 import turtle
 
-from duze_cyfry import daj_cyfre
-
-t = turtle.Turtle()
-screen = turtle.Screen()
+from lista5.big_numbers import give_number
 
 
-def kwadrat(size):
+def kwadrat(size, t):
     t.begin_fill()
     for _ in range(4):
         t.forward(size)
@@ -15,14 +12,14 @@ def kwadrat(size):
     t.end_fill()
 
 
-def rysuj_liczbe(liczba, width):
+def rysuj_liczbe(liczba, width, t):
     for i in range(len(liczba)):
         for j in range(len(liczba[i])):
             t.penup()
             t.forward(width / 5)
             t.pendown()
             if liczba[i][j] == '#':
-                kwadrat(width / 5)
+                kwadrat(width / 5, t)
 
         t.penup()
         t.backward(width)
@@ -38,22 +35,29 @@ def rysuj_liczbe(liczba, width):
     t.penup()
 
 
-def wyznacz_liczby(liczby_str):
+def wyznacz_liczby(liczby_str, t):
     liczby = []
     for l in liczby_str:
         liczby.append(int(l))
 
     for i in range(len(liczby)):
         t.fillcolor(random.random(), random.random(), random.random())
-        rysuj_liczbe(daj_cyfre(liczby[i]), 100)
+        rysuj_liczbe(give_number(liczby[i]), 100, t)
 
 
-t.penup()
-t.goto(-300, 250)
-t.pendown()
+def main():
+    t = turtle.Turtle()
+    screen = turtle.Screen()
 
-liczba = '2560'
-wyznacz_liczby(liczba)
+    t.penup()
+    t.goto(-300, 250)
+    t.pendown()
+
+    liczba = '2560'
+    wyznacz_liczby(liczba, t)
+
+    screen.mainloop()
 
 
-screen.mainloop()
+if __name__ == '__main__':
+    main()

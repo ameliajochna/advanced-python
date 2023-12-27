@@ -3,11 +3,7 @@ import turtle
 SQUARE_WIDTH = 10
 
 
-t = turtle.Turtle()
-screen = turtle.Screen()
-
-
-def square(a, color):
+def square(a, color, t):
     t.pencolor(int(color[0]), int(color[1]), int(color[2]))
     t.color(int(color[0]), int(color[1]), int(color[2]))
     t.begin_fill()
@@ -17,13 +13,13 @@ def square(a, color):
     t.end_fill()
 
 
-def read_file(path):
+def read_file(path, t):
     f = open(path)
     content = f.read().split('\n')
     for line in content:
         arr = line.split(' ')
         for w in arr:
-            square(SQUARE_WIDTH, eval(w))
+            square(SQUARE_WIDTH, eval(w), t)
             t.forward(SQUARE_WIDTH)
 
         t.penup()
@@ -34,16 +30,23 @@ def read_file(path):
         t.pendown()
 
 
-t.penup()
-t.goto(-300, 250)
-t.pendown()
+def main():
+    t = turtle.Turtle()
+    screen = turtle.Screen()
+    t.penup()
+    t.goto(-300, 250)
+    t.pendown()
 
-screen.tracer(0, 1)
+    screen.tracer(0, 1)
 
-screen.colormode(255)
+    screen.colormode(255)
 
-read_file('img2.txt')
+    read_file('img2.txt')
 
-t.penup()
+    t.penup()
 
-screen.mainloop()
+    screen.mainloop()
+
+
+if __name__ == '__main__':
+    main()

@@ -53,6 +53,11 @@ def character_diamonds(height, count, char):
     word_diamonds(height, arr)
 
 
-word_diamonds(11, ['diament', 'd', 'word'])
+def main():
+    word_diamonds(11, ['diament', 'd', 'word'])
 
-character_diamonds(11, 4, '*')
+    character_diamonds(11, 4, '*')
+
+
+if __name__ == '__main__':
+    main()

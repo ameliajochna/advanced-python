@@ -34,7 +34,3 @@ def doable(base, word):
         else:
             return False
     return True
-
-
-print(doable('promotion', 'nopro'))
-print(doable('promotion', 'lotion'))

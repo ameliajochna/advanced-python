@@ -48,14 +48,19 @@ def pythagorean_triplets(n):
     ]
 
 
-print('dzielniki 60: ', divisors(60))
-print('dzielniki 37: ', divisors(37))
-print('pierwsze mniejsze od 25: ', prime(25))
-print('zlozone mniejsze od 20', composite(20))
-print('liczby perfekcyjne do 15:', perfect(15))
-print('liczby deficytowe do 15:', deficient(15))
-print('liczby nadmiarowe do 15:', abundant(15))
-print('liczby perfekcyjne do 15:', gen_list(15, isperfect))
-print('liczby deficytowe do 15:', gen_list(15, isdeficient))
-print('liczby nadmiarowe do 15:', gen_list(15, isabundant))
-print('pitagorasowe do 30: ', pythagorean_triplets(30))
+def main():
+    print('dzielniki 60: ', divisors(60))
+    print('dzielniki 37: ', divisors(37))
+    print('pierwsze mniejsze od 25: ', prime(25))
+    print('zlozone mniejsze od 20', composite(20))
+    print('liczby perfekcyjne do 15:', perfect(15))
+    print('liczby deficytowe do 15:', deficient(15))
+    print('liczby nadmiarowe do 15:', abundant(15))
+    print('liczby perfekcyjne do 15:', gen_list(15, isperfect))
+    print('liczby deficytowe do 15:', gen_list(15, isdeficient))
+    print('liczby nadmiarowe do 15:', gen_list(15, isabundant))
+    print('pitagorasowe do 30: ', pythagorean_triplets(30))
+
+
+if __name__ == '__main__':
+    main()

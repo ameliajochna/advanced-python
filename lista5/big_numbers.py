@@ -1,6 +1,6 @@
-cyfry = {}
+digits = {}
 
-cyfry[
+digits[
     0
 ] = """
  ###
@@ -10,7 +10,7 @@ cyfry[
  ###
 """
 
-cyfry[
+digits[
     1
 ] = """
   #
@@ -20,7 +20,7 @@ cyfry[
  ###
 """
 
-cyfry[
+digits[
     4
 ] = """
  #
@@ -31,7 +31,7 @@ cyfry[
 """
 
 
-cyfry[
+digits[
     2
 ] = """
  ###
@@ -41,7 +41,7 @@ cyfry[
 #####
 """
 
-cyfry[
+digits[
     5
 ] = """
 #####
@@ -51,7 +51,7 @@ cyfry[
 ####
 """
 
-cyfry[
+digits[
     8
 ] = """
  ###
@@ -61,7 +61,7 @@ cyfry[
  ###
 """
 
-cyfry[
+digits[
     6
 ] = """
  ###
@@ -71,7 +71,7 @@ cyfry[
  ###
 """
 
-cyfry[
+digits[
     9
 ] = """
  ###
@@ -81,7 +81,7 @@ cyfry[
  ###
 """
 
-cyfry[
+digits[
     3
 ] = """
 ####
@@ -91,7 +91,7 @@ cyfry[
 ####
 """
 
-cyfry[
+digits[
     7
 ] = """
 #####
@@ -101,7 +101,7 @@ cyfry[
 #
 """
 
-pytajnik = """
+question_mark = """
  ###
 #   #
   ##
@@ -110,7 +110,7 @@ pytajnik = """
 """
 
 
-def popraw(s):
+def fix(s):
     L = s.split('\n')
     for i in range(len(L)):
         if len(L[i]) < 5:
@@ -120,7 +120,7 @@ def popraw(s):
     return L[1:-1]
 
 
-def daj_cyfre(n):
+def give_number(n):
     if n not in range(10):
-        return popraw(pytajnik)
-    return popraw(cyfry[n])
+        return fix(question_mark)
+    return fix(digits[n])

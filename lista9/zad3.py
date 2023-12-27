@@ -28,7 +28,12 @@ class fraction:
         return self * fraction(x.b, x.a)
 
 
-print(fraction(1, 2) + fraction(1, 3))
-print(fraction(2, 3) + fraction(1, 3))
-print(fraction(3, 4) * fraction(1, 3))
-print(fraction(5, 1) / fraction(10, 1))
+def main():
+    print(fraction(1, 2) + fraction(1, 3))
+    print(fraction(2, 3) + fraction(1, 3))
+    print(fraction(3, 4) * fraction(1, 3))
+    print(fraction(5, 1) / fraction(10, 1))
+
+
+if __name__ == '__main__':
+    main()

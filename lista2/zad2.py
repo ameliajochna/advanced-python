@@ -1,4 +1,4 @@
-def koperta(n: int):
+def envelope(n: int):
     print('*' * (2 * n + 1))
 
     for i in range(0, n - 1):
@@ -11,4 +11,9 @@ def koperta(n: int):
     print('*' * (2 * n + 1))
 
 
-koperta(10)
+def main():
+    envelope(10)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,4 +1,4 @@
-FILE_PATH = './popularne_slowa2023.txt'
+FILE_PATH = './popular_words.txt'
 
 
 def get_words():
@@ -18,4 +18,9 @@ def find_paired_words():
     print(sorted(ans))
 
 
-find_paired_words()
+def main():
+    find_paired_words()
+
+
+if __name__ == '__main__':
+    main()

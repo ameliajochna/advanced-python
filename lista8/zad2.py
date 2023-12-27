@@ -36,5 +36,10 @@ def doable(base, word):
     return True
 
 
-print(doable('promotion', 'nopro'))
-print(doable('promotion', 'lotion'))
+def main():
+    print(doable('promotion', 'nopro'))
+    print(doable('promotion', 'lotion'))
+
+
+if __name__ == '__main__':
+    main()

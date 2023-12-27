@@ -16,12 +16,15 @@ def energia(a, b):
     for i in range(a, b + 1):
         arr += [len(F(i))]
 
-    # print(arr, sorted(arr))
-
     print('AVG: ', numpy.average(arr))
     print('MEDIAN: ', numpy.median(arr))
     print('MIN: ', numpy.min(arr))
     print('MAX: ', numpy.max(arr))
 
 
-energia(1, 10)
+def main():
+    energia(1, 10)
+
+
+if __name__ == '__main__':
+    main()

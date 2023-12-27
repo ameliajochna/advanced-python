@@ -1,7 +1,12 @@
-def szachownica(n: int, k: int):
-    para1 = ' ' * k + '#' * k
-    para2 = '#' * k + ' ' * k
-    print(((para1 * n + '\n') * k + (para2 * n + '\n') * k) * n)
+def chessboard(n: int, k: int):
+    type1 = ' ' * k + '#' * k
+    type2 = '#' * k + ' ' * k
+    print(((type1 * n + '\n') * k + (type2 * n + '\n') * k) * n)
 
 
-szachownica(5, 3)
+def main():
+    chessboard(5, 3)
+
+
+if __name__ == '__main__':
+    main()

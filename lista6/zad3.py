@@ -9,6 +9,3 @@ def prime_divisors(n):
             while n % d == 0:
                 n /= d
     return set(arr)
-
-
-print(prime_divisors(12))

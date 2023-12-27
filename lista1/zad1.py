@@ -1,20 +1,25 @@
-def kwadrat(n):
+def square(n):
     for i in range(n):
         for j in range(n):
             print('* ', end='')
         print()
 
 
-def kwadrat2(n):
+def square2(n):
     for i in range(n):
         print(n * '#')
 
 
-for i in range(10):
-    print('Przebieg:', i)
-    print(20 * '-')
-    if i < 5:
-        kwadrat(3 + 2 * i)
-    else:
-        kwadrat2(i - 2)
-    print()
+def main():
+    for i in range(10):
+        print('Przebieg:', i)
+        print(20 * '-')
+        if i < 5:
+            square(3 + 2 * i)
+        else:
+            square2(i - 2)
+        print()
+
+
+if __name__ == '__main__':
+    main()

@@ -13,5 +13,10 @@ def sum_calibration_values(text):
     )
 
 
-f = open('calibration.txt')
-print(sum_calibration_values(f.read().splitlines()))
+def main():
+    f = open('calibration.txt')
+    print(sum_calibration_values(f.read().splitlines()))
+
+
+if __name__ == '__main__':
+    main()

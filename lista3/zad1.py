@@ -33,4 +33,9 @@ def sprawdz(zakres):
     print(licz)
 
 
-sprawdz(100000)
+def main():
+    sprawdz(100000)
+
+
+if __name__ == '__main__':
+    main()

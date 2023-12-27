@@ -1,11 +1,8 @@
 import math
 import turtle
 
-t = turtle.Turtle()
-screen = turtle.Screen()
 
-
-def rectangle(a, b, rotation):
+def rectangle(a, b, rotation, t):
     t.left(rotation)
     t.forward(a)
     t.left(rotation)
@@ -16,16 +13,23 @@ def rectangle(a, b, rotation):
     t.forward(b)
 
 
-def sinus():
+def sinus(t):
     for i in range(0, 360, 5):
         val = int(200 * math.sin(math.radians(i)))
         print(val)
-        rectangle(val, 5, 90)
+        rectangle(val, 5, 90, t)
         t.forward(5)
 
 
-t.speed(0)
+def main():
+    t = turtle.Turtle()
+    screen = turtle.Screen()
+    t.speed(0)
 
-sinus()
+    sinus(t)
 
-screen.mainloop()
+    screen.mainloop()
+
+
+if __name__ == '__main__':
+    main()

@@ -1,10 +1,7 @@
 import turtle
 
-t = turtle.Turtle()
-screen = turtle.Screen()
 
-
-def romb(a, b, angle):
+def romb(a, b, angle, t):
     t.left(angle)
     t.forward(a)
     t.left(180 - angle)
@@ -15,13 +12,13 @@ def romb(a, b, angle):
     t.forward(b)
 
 
-def flower(N):
+def flower(N, t):
     for _ in range(N):
-        romb(50, 50, 150)
+        romb(50, 50, 150, t)
         t.right(360 / N)
 
 
-def bukiet(n):
+def bukiet(n, t):
     t.left(90)
     n = str(n)
     N = len(str(n))
@@ -32,7 +29,7 @@ def bukiet(n):
         if i == 0:
             t.pencolor('red')
 
-        flower(int(c) + 3)
+        flower(int(c) + 3, t)
 
         t.pencolor('black')
 
@@ -40,11 +37,17 @@ def bukiet(n):
         t.rt(360 / N)
 
 
-t.setposition(0, 0)
-t.speed(0)
+def main():
+    t = turtle.Turtle()
+    screen = turtle.Screen()
+
+    t.setposition(0, 0)
+    t.speed(0)
+
+    bukiet('59257', t)
+
+    screen.mainloop()
 
 
-bukiet('59257')
-
-
-screen.mainloop()
+if __name__ == '__main__':
+    main()

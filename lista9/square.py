@@ -32,10 +32,8 @@ def kwadrat(x, y, kolor):
     end_fill()
 
 
-tracer(0, 1)
-print('Zmienna __name__ =', __name__)
-
-if __name__ == '__main__':
+def main():
+    tracer(0, 1)
     speed('fastest')
     kolory = ['red', 'green', 'blue']
 
@@ -43,3 +41,7 @@ if __name__ == '__main__':
         kwadrat(i, i, kolory[i % 3])
 
     input()
+
+
+if __name__ == '__main__':
+    main()

@@ -1,4 +1,4 @@
-def podziel(s):
+def divide(s):
     s += ' '
     arr = []
     cur_word = ''

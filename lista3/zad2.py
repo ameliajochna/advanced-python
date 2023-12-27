@@ -39,4 +39,9 @@ def generuj_liczby(dlugosc, cyfra, podrzad):
     return liczby
 
 
-print(sprawdz(generuj_liczby(9, 7, 7)))
+def main():
+    print(sprawdz(generuj_liczby(9, 7, 7)))
+
+
+if __name__ == '__main__':
+    main()

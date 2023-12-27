@@ -1,17 +1,17 @@
 from zad2 import doable, use_letters
 
-pol_dict = {}
-
 
 def make_dict():
-    for x in open('popularne_slowa2023.txt'):
+    pol_dict = {}
+    for x in open('popular_words.txt'):
         x = x.strip()
         pol = x
         if pol not in pol_dict:
             pol_dict[pol] = 0
+    return pol_dict
 
 
-def find_puzzle(name):
+def find_puzzle(name, pol_dict):
     name = name.replace(' ', '').lower()
     for w in pol_dict:
         if doable(name, w):
@@ -21,5 +21,10 @@ def find_puzzle(name):
                     print(w, d)
 
 
-make_dict()
-find_puzzle('Albert Einstein')
+def main():
+    pol_dict = make_dict()
+    find_puzzle('Albert Einstein', pol_dict)
+
+
+if __name__ == '__main__':
+    main()

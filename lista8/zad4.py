@@ -4,14 +4,12 @@ import turtle
 
 import numpy
 
-colours = ['green', (0.5, 1, 0), 'yellow', 'orange', 'red', (0.5, 0, 0)]
+COLOURS = ['green', (0.5, 1, 0), 'yellow', 'orange', 'red', (0.5, 0, 0)]
 MAP_SIZE = 100
 SQUARE_WIDTH = 10
-t = turtle.Turtle()
-screen = turtle.Screen()
 
 
-def square(a, color):
+def square(a, color, t):
     t.pencolor(color)
     t.color(color)
     t.begin_fill()
@@ -55,11 +53,11 @@ def generate_map():
     return matrix
 
 
-def draw_map(matrix):
+def draw_map(matrix, t):
     for i in range(MAP_SIZE):
         for j in range(MAP_SIZE):
             colour_id = math.floor(matrix[i][j] / 0.2)
-            square(SQUARE_WIDTH, colours[colour_id])
+            square(SQUARE_WIDTH, COLOURS[colour_id], t)
             t.forward(SQUARE_WIDTH)
 
         t.penup()
@@ -70,13 +68,21 @@ def draw_map(matrix):
         t.pendown()
 
 
-screen.tracer(0, 0)
+def main():
+    t = turtle.Turtle()
+    screen = turtle.Screen()
 
-t.penup()
-t.goto(-600, 500)
-t.pendown
+    screen.tracer(0, 0)
 
-matrix = generate_map()
-draw_map(matrix)
+    t.penup()
+    t.goto(-600, 500)
+    t.pendown
 
-screen.mainloop()
+    matrix = generate_map()
+    draw_map(matrix, t)
+
+    screen.mainloop()
+
+
+if __name__ == '__main__':
+    main()

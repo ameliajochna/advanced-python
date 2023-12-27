@@ -1,12 +1,9 @@
 import turtle
 
-from duze_cyfry import daj_cyfre
-
-t = turtle.Turtle()
-screen = turtle.Screen()
+from lista6.big_numbers import give_number
 
 
-def kwadrat(size):
+def kwadrat(size, t):
     t.begin_fill()
     for _ in range(4):
         t.forward(size)
@@ -14,7 +11,7 @@ def kwadrat(size):
     t.end_fill()
 
 
-def rysuj_liczbe(cyfra, width):
+def rysuj_liczbe(cyfra, width, t):
     for i in range(len(cyfra)):
         for j in range(len(cyfra[i])):
             t.penup()
@@ -37,12 +34,22 @@ def rysuj_liczbe(cyfra, width):
     t.penup()
 
 
-def mozaika():
-    rysuj_liczbe(daj_cyfre(5), 100)
+def mozaika(t):
+    rysuj_liczbe(give_number(5), 100, t)
 
 
-t.penup()
-t.goto(-300, 250)
-t.pendown()
+def main():
+    t = turtle.Turtle()
+    screen = turtle.Screen()
 
-screen.mainloop()
+    t.penup()
+    t.goto(-300, 250)
+    t.pendown()
+
+    mozaika(t)
+
+    screen.mainloop()
+
+
+if __name__ == '__main__':
+    main()

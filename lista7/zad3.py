@@ -1,4 +1,4 @@
-FILE_PATH = 'popularne_slowa2023.txt'
+FILE_PATH = 'popular_words.txt'
 
 
 def get_words():
@@ -49,4 +49,9 @@ def read_file(path, polish_words):
         print(longest_seg_without_polish_chars(content, polish_words))
 
 
-read_file('lalka.txt', get_words())
+def main():
+    read_file('lalka.txt', get_words())
+
+
+if __name__ == '__main__':
+    main()
