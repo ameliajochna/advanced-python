@@ -23,9 +23,8 @@ def create_word_count():
     word_count = {}
     with open("brown.txt") as file:
         for x in file:
-            fixed_x = (
-                x.replace("\n", " \n").replace("'", "").replace('"', "").split(" ")
-            )
+            x = x.replace("'", "").replace('"', "")
+            fixed_x = x.replace("\n", " \n").split(" ")
             for w in fixed_x:
                 w = w.strip().lower()
 

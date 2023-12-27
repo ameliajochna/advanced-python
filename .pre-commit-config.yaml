@@ -68,4 +68,4 @@ repos:
         args:
           - --fix
           - --exit-non-zero-on-fix
-      - id: ruff-format
+      # - id: ruff-format

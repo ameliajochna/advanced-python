@@ -17,11 +17,7 @@ def find_puzzle(name, pol_dict):
         if doable(name, word):
             new_base = use_letters(name, word)
             for other_word in pol_dict:
-                if (
-                    word < other_word
-                    and doable(new_base, other_word)
-                    and use_letters(new_base, other_word) == ""
-                ):
+                if word < other_word and doable(new_base, other_word) and use_letters(new_base, other_word) == "":
                     print(word, other_word)
 
 
