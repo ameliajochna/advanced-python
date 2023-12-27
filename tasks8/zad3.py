@@ -1,5 +1,6 @@
 from zad2 import doable, use_letters
 
+
 def make_dict():
     pol_dict = {}
     with open("../tasks6/popular_words.txt") as file:

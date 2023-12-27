@@ -13,9 +13,11 @@ def remove_duplicates(input_list):
     result = [item[1] for item in unique_list]
     return result
 
+
 def main():
     input_list = [1, 2, 3, 1, 2, 3, 8, 2, 2, 2, 9, 9, 4]
     print(remove_duplicates(input_list))
+
 
 if __name__ == "__main__":
     main()

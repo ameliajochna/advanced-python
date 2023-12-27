@@ -1,6 +1,8 @@
 import random
 import turtle
+
 from tasks2.big_numbers import give_number
+
 
 def draw_square(size, t):
     t.begin_fill()
@@ -8,6 +10,7 @@ def draw_square(size, t):
         t.forward(size)
         t.left(90)
     t.end_fill()
+
 
 def draw_number(number, width, t):
     for i in range(len(number)):
@@ -31,6 +34,7 @@ def draw_number(number, width, t):
     t.forward(int(6 / 5 * width))
     t.penup()
 
+
 def draw_numbers(numbers_str, t):
     numbers = [int(num) for num in numbers_str]
 
@@ -38,15 +42,17 @@ def draw_numbers(numbers_str, t):
         t.fillcolor(random.random(), random.random(), random.random())
         draw_number(give_number(numbers[i]), 100, t)
 
-def main():
-    with turtle.Screen() as screen:
-        t = turtle.Turtle()
-        t.penup()
-        t.goto(-300, 250)
-        t.pendown()
 
-        numbers_str = "2560"
-        draw_numbers(numbers_str, t)
+def main():
+    turtle.Screen()
+
+    t = turtle.Turtle()
+    t.penup()
+    t.goto(-300, 250)
+    t.pendown()
+    numbers_str = "2560"
+    draw_numbers(numbers_str, t)
+
 
 if __name__ == "__main__":
     main()

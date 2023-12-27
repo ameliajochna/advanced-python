@@ -14,7 +14,7 @@ def square(a, color, t):
 
 
 def read_file(path, t):
-    with open(path, 'r') as file:
+    with open(path) as file:
         content = file.read().split("\n")
         for line in content:
             colors = [eval(w) for w in line.split(" ") if w]

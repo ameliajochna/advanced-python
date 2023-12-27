@@ -3,7 +3,7 @@ from tasks8.zad2 import doable, use_letters
 
 def make_dict(file_path="../tasks6/popular_words.txt"):
     pol_dict = {}
-    with open(file_path, 'r') as file:
+    with open(file_path) as file:
         for x in file:
             x = x.strip()
             pol = x

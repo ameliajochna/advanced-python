@@ -12,6 +12,7 @@ def divide(s):
 
     return words
 
+
 sentence = "This is an example sentence."
 result = divide(sentence)
 print(result)

@@ -2,7 +2,7 @@ FILE_PATH = "../tasks6/popular_words.txt"
 
 
 def get_words():
-    with open(FILE_PATH, 'r') as file:
+    with open(FILE_PATH) as file:
         return set(file.read().split())
 
 

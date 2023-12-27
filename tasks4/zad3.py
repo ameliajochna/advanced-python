@@ -1,5 +1,6 @@
 import random
 
+
 def random_permutation(n):
     # Initialize a list with numbers from 0 to n-1
     permutation = list(range(0, n))
@@ -12,9 +13,11 @@ def random_permutation(n):
 
     return permutation
 
+
 def main():
     # Generate and print a random permutation of numbers from 0 to 10^6 - 1
     print(random_permutation(10**6))
+
 
 if __name__ == "__main__":
     main()

@@ -37,7 +37,7 @@ def randomize(content):
 
 
 def read_file(path, t):
-    with open(path, 'r') as file:
+    with open(path) as file:
         content = randomize(file.read())
         for line in content:
             arr = line[0].split(" ")

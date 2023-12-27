@@ -44,7 +44,6 @@ def create_database(directory_path):
     return db
 
 
-
 def get_movie(id, db):
     return db["movies"][id]
 

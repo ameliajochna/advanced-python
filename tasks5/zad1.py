@@ -12,16 +12,16 @@ def F(n):
 
 
 def energia(a, b, output_file):
-    with open(output_file, 'w') as f:
+    with open(output_file, "w") as f:
         for i in range(a, b + 1):
             sequence_length = len(F(i))
             f.write(f"{i}: {sequence_length}\n")
 
         arr = [len(F(i)) for i in range(a, b + 1)]
-        f.write("\nAVG: {}\n".format(np.average(arr)))
-        f.write("MEDIAN: {}\n".format(np.median(arr)))
-        f.write("MIN: {}\n".format(np.min(arr)))
-        f.write("MAX: {}\n".format(np.max(arr)))
+        f.write(f"\nAVG: {np.average(arr)}\n")
+        f.write(f"MEDIAN: {np.median(arr)}\n")
+        f.write(f"MIN: {np.min(arr)}\n")
+        f.write(f"MAX: {np.max(arr)}\n")
 
 
 def main():

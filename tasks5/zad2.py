@@ -22,12 +22,11 @@ def draw_sinusoidal_wave(t):
 
 
 def main():
-    with turtle.Screen() as screen:
-        t = turtle.Turtle()
-        t.speed(0)
+    turtle.Screen()
+    t = turtle.Turtle()
+    t.speed(0)
 
-        draw_sinusoidal_wave(t)
-
+    draw_sinusoidal_wave(t)
 
 
 if __name__ == "__main__":

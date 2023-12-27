@@ -1,5 +1,6 @@
 import random
 
+
 def create_pol_eng():
     pol_eng = {}
 
@@ -16,6 +17,7 @@ def create_pol_eng():
             else:
                 pol_eng[pol] = [eng]
     return pol_eng
+
 
 def create_word_count():
     word_count = {}
@@ -38,6 +40,7 @@ def create_word_count():
                     word_count[w] = 1
     return word_count
 
+
 def most_popular(word, pol_eng, word_count):
     max_cnt = 0
     for w in pol_eng[word]:
@@ -53,6 +56,7 @@ def most_popular(word, pol_eng, word_count):
 
     return max_list[n]
 
+
 def translate(polish_words, pol_eng, word_count):
     result = []
     for word in polish_words:
@@ -62,6 +66,7 @@ def translate(polish_words, pol_eng, word_count):
             result.append("[" + word + "]")
     return result
 
+
 def main():
     pol_eng = create_pol_eng()
     word_count = create_word_count()
@@ -69,6 +74,7 @@ def main():
     sentence = "chłopiec i dziewczynka pójść do sklepu".split()
 
     print(" ".join(translate(sentence, pol_eng, word_count)))
+
 
 if __name__ == "__main__":
     main()
