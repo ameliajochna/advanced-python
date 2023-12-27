@@ -10,6 +10,7 @@ SQUARE_WIDTH = 10
 
 
 def square(a, color, t):
+    """Draw a colored square of side length 'a' using the turtle 't'."""
     t.pencolor(color)
     t.color(color)
     t.begin_fill()
@@ -20,14 +21,17 @@ def square(a, color, t):
 
 
 def generate_map():
+    """Generate a random matrix representing the map."""
     matrix = [[0.0] * MAP_SIZE for _ in range(MAP_SIZE)]
     n = 200
 
+    # Randomly set some cells to a high value (representing a high elevation)
     for _ in range(n):
         i = random.randint(0, MAP_SIZE - 1)
         j = random.randint(0, MAP_SIZE - 1)
         matrix[i][j] = 4
 
+    # Simulate a diffusion process to smooth out the elevations
     for _ in range(1000000):
         i = random.randint(0, MAP_SIZE - 1)
         j = random.randint(0, MAP_SIZE - 1)
@@ -44,8 +48,8 @@ def generate_map():
 
         matrix[i][j] = numpy.average(neighbours)
 
+    # Normalize the values to be between 0 and 1
     max_value = numpy.amax(matrix)
-
     for i in range(MAP_SIZE):
         for j in range(MAP_SIZE):
             matrix[i][j] = matrix[i][j] / max_value
@@ -54,6 +58,7 @@ def generate_map():
 
 
 def draw_map(matrix, t):
+    """Draw the map using the turtle 't'."""
     for i in range(MAP_SIZE):
         for j in range(MAP_SIZE):
             colour_id = math.floor(matrix[i][j] / 0.2)

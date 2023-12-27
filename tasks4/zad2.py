@@ -1,183 +1,183 @@
 import random
 
-# W tym programie znajduje sie kilka prostych funkcji demonstrujacych operacje na listach.
-# [!] oznacza, ze w danym miejscu konieczne jest dopisanie (ew. zmiana) istniejacego kodu.
-# Prawidlowy wynik dzialania programu znajduje sie na stronie KNO
+# This program contains several simple functions demonstrating operations on lists.
+# [!] indicates that it is necessary to add (or change) existing code at that point.
+# The correct program output can be found on the KNO page.
 
 
-def parzysta(n):
+def is_even(n):
     return n % 2 == 0
 
 
 #
-# Funkcje, ktore licza cos dla listy
+# Functions that perform operations on a list
 #
 
 
-def suma1(L):
-    # 'Sumowanie elementow listy'
-    wynik = 0
+def sum1(L):
+    # 'Summing elements of the list'
+    result = 0
     for element in L:
-        wynik += element
-    return wynik
+        result += element
+    return result
 
 
-def suma2(L):  # [!]
-    # 'Sumowanie elementow listy, iteracja po indeksach. W funkcji jest drobny blad.'
-    wynik = 0  # zamiast L[0]
-    for indeks in range(len(L)):
-        wynik += L[indeks]
-    return wynik
+def sum2(L):  # [!]
+    # 'Summing elements of the list, iteration by indices. There is a minor mistake in the function.'
+    result = 0  # instead of L[0]
+    for index in range(len(L)):
+        result += L[index]
+    return result
 
 
-def suma_parzystych(L):  # [!]
-    # 'Suma parzystych elementow listy. W tej funkcji rowniez jest blad. Powinienes skorzystac z funkcji parzysta'
+def sum_even(L):  # [!]
+    # 'Sum of even elements in the list. There is also an error in this function. You should use the is_even function.'
 
-    wynik = 0
+    result = 0
     for element in L:
-        wynik += int(parzysta(element)) * element
-    return wynik
+        result += int(is_even(element)) * element
+    return result
 
 
 #
-# Funkcje (procedury), ktore robia cos dla listy (ale nie modyfikuja listy)
+# Procedures that do something for a list (but do not modify the list)
 #
 
 
-def ze_spacjami(n, k, znak):
-    # "Jak liczba n zajmuje mniej niz k znakow, to dodaje z tylu odpowiednia liczbe spacji (lub znakow '_' do wyboru)"
+def with_spaces(n, k, character):
+    # "If the number n takes up less than k characters, add the appropriate number of spaces (or '_' characters) to the end"
     s = str(n)
     if len(s) < k:
         for i in range(k - len(s)):
-            s += znak
+            s += character
     return s
 
 
-def histogram(L):
-    # 'Wypisuje histogram dla listy L. Liczba z gwiazdkami nie powinna sie sklejac, gwiazdki powinny zaczynac sie w czwartej kolumnie'
-    for liczba in L:
-        print(str(liczba) + " " + "*" * liczba)
+def draw_histogram(L):
+    # 'Prints a histogram for the list L. The number with asterisks should not concatenate; the asterisks should start in the fourth column'
+    for number in L:
+        print(str(number) + " " + "*" * number)
 
 
 #
-# Funkcje (procedury), ktore modyfikuja liste, bedaca argumentem
+# Functions (procedures) that modify the list that is the argument
 #
 
 
-def powieksz_liczby(L):
-    # 'funkcja powieksza wszystkie elementy listy L. Nie zwraca niczego istotnego (wywolujemy ja jako procedure)'
+def increment_numbers(L):
+    # 'function increases all elements of list L. Does not return anything significant (we call it as a procedure)'
     for i in range(len(L)):
         L[i] += 1
 
 
-def normalizuj(L):
-    # 'funkcja odejmuje od kazdego elementu listy L srednia wartosc wszystkich elementow tej listy'
-    srednia = suma1(L) / len(L)
+def normalize(L):
+    # 'function subtracts the average value of all elements of list L from each element'
+    average = sum1(L) / len(L)
     for i in range(len(L)):
-        L[i] -= srednia
+        L[i] -= average
 
 
-def znormalizowana(L):
-    # 'Funkcja zwraca znormalizowana liste. Powinna wykorzystac funkcje znormalizuj, nie moze zmieniac swojego argumentu. W funkcji jest blad.'
+def normalized(L):
+    # 'The function returns a normalized list. It should use the normalize function, cannot modify its argument. There is an error in the function.'
     L1 = []
     for i in L:
         L1 += [i]
 
-    normalizuj(L1)
+    normalize(L1)
     return L1
 
 
 #
-# Funkcje, ktore tworza nowe listy
+# Functions that create new lists
 #
 
 
-def powiekszone_parzyste_z_zerami(L):  # [!] drobny błąd
-    # Funkcja zwraca liste, w ktorej wszystkie parzyste liczby zostaja powiekszone o 1, a nieparzyste pominiete.
-    # Dodatkowo w wyniku po kazdej liczbie dodany jest dodatkowy element, rowny 0
-    wynik = []
+def increased_even_with_zeros(L):  # [!] minor error
+    # The function returns a list in which all even numbers are increased by 1, and odd ones are omitted.
+    # Additionally, after each number, an additional element equal to 0 is added.
+    result = []
     for n in L:
-        if parzysta(n):
-            wynik.append(n + 1)  # Jesli wolisz: wynik += [n+1]
-        wynik.append(0)  # Znowu, mozna: wynik += [0]
-    return wynik
+        if is_even(n):
+            result.append(n + 1)  # If you prefer: result += [n+1]
+        result.append(0)  # Again, you can: result += [0]
+    return result
 
 
-def madrzejsza(L):  # [!]
-    # Funkcja zwraca "madrzejsza" wersje listy L. Pomija w niej krotkie slowa (dlugosc <= 3), jako nie dosc madre,
-    #  dodatkowo po kazdym slowie dodaje jakies madre slowo z listy madrych slow.
-    # Implementacja ponizej mocno rozmija sie ze specyfikacja.
+def smarter_version(L):  # [!]
+    # The function returns a "smarter" version of the list L. It skips short words (length <= 3) as not smart enough,
+    # additionally, after each word, it adds some smart word from the list of smart words.
+    # The implementation below deviates significantly from the specification.
 
-    madre_slowa = [
-        "istotnie",
-        "zasadniczo",
-        "rudymentalnie",
-        "rustykalnie",
-        "radykalnie",
-        "hej",
+    smart_words = [
+        "significantly",
+        "fundamentally",
+        "mentally",
+        "rustically",
+        "radically",
+        "hey",
     ]
 
-    wynik = []
-    for slowo in L:
-        if len(slowo) > 3:
-            wynik += [slowo] + [random.choice(madre_slowa)]
-    return wynik
+    result = []
+    for word in L:
+        if len(word) > 3:
+            result += [word] + [random.choice(smart_words)]
+    return result
 
 
 ###################################################################################
-# Demonstracja dzialania
+# Demonstration of operation
 ###################################################################################
 
 L = [1, 2, 3, 4, 5]
 
-print("Dla listy " + str(L) + " suma elementow rowna sie")
-print(suma1(L))
-print(suma2(L))
-print("Jak zsumujemy tylko parzyste, to otrzymamy")
-print(suma_parzystych(L))
+print("For the list " + str(L) + " the sum of elements is")
+print(sum1(L))
+print(sum2(L))
+print("If we sum only even ones, we get")
+print(sum_even(L))
 print("")
 
 H = [1, 2, 3, 4, 5, 6, 7, 4, 8, 4, 8, 2, 2, 1, 10]
-print("Histogram dla listy " + str(H))
-histogram(H)
+print("Histogram for the list " + str(H))
+draw_histogram(H)
 print("")
 
-print("Zaczynamy od " + str(L) + " i zwiekszamy 4 razy")
+print("Starting with " + str(L) + " and incrementing 4 times")
 
-powieksz_liczby(L)
-print(L)  # raczej nie uzywamy srednikow, ale tu nie moglem sie powstrzymac
-powieksz_liczby(L)
+increment_numbers(L)
+print(L)  # we don't usually use semicolons, but I couldn't resist here
+increment_numbers(L)
 print(L)
-powieksz_liczby(L)
+increment_numbers(L)
 print(L)
-powieksz_liczby(L)
+increment_numbers(L)
 print(L)
 
 L = [1, 2, 3, 4, 5]
 L2 = L[:]
 
 print("")
-print("Zaczynamy od " + str(L2) + " i normalizujemy 3 razy")
+print("Starting with " + str(L2) + " and normalizing 3 times")
 
-normalizuj(L2)
+normalize(L2)
 print(L2)
-normalizuj(L2)
+normalize(L2)
 print(L2)
-normalizuj(L2)
+normalize(L2)
 print(L2)
 
-print("Dlaczego ciagle to samo?")
+print("Why the same thing all the time?")
 
-print("O, i znowu:")
+print("Oh, again:")
 
-print(znormalizowana(L))
-print("Oczywiscie mamy " + str(L) + " == [1,2,3,4,5]")
+print(normalized(L))
+print("Of course, we have " + str(L) + " == [1,2,3,4,5]")
 
 print("")
-print("Powiekszamy parzyste, pomijamy nieparzyste i wstawiamy 0 po")
-print(powiekszone_parzyste_z_zerami(L))
+print("Increasing even, skipping odd, and inserting 0 after")
+print(increased_even_with_zeros(L))
 
 
-print("Cos madrego na zakonczenie:")
-Dane = "nauka programowania w pythonie wcale nie jest taka trudna".split(" ")
-print(" ".join(madrzejsza(Dane)))
+print("Something smart at the end:")
+Data = "programming in python is not that difficult at all".split(" ")
+print(" ".join(smarter_version(Data)))

@@ -1,52 +1,51 @@
 import random
 
+def create_pol_eng():
+    pol_eng = {}
 
-def create_pol_ang():
-    pol_ang = {}
+    with open("pol_eng.txt") as file:
+        for x in file:
+            x = x.strip()
+            L = x.split("=")
+            if len(L) != 2:
+                continue
 
-    for x in open("pol_ang.txt"):
-        x = x.strip()
-        L = x.split("=")
-        if len(L) != 2:
-            continue
-
-        pol, ang = L
-        if pol in pol_ang:
-            pol_ang[pol].append(ang)
-        else:
-            pol_ang[pol] = [ang]
-    return pol_ang
-
+            pol, eng = L
+            if pol in pol_eng:
+                pol_eng[pol].append(eng)
+            else:
+                pol_eng[pol] = [eng]
+    return pol_eng
 
 def create_word_count():
     word_count = {}
-    for x in open("brown.txt"):
-        for w in x.replace("\n", " \n").replace("'", "").replace('"', "").split(" "):
-            w = w.strip().lower()
+    with open("brown.txt") as file:
+        for x in file:
+            for w in x.replace("\n", " \n").replace("'", "").replace('"', "").split(" "):
+                w = w.strip().lower()
 
-            ok = False
-            for c in w:
-                if c >= "a" and c <= "z":
-                    ok = True
+                ok = False
+                for c in w:
+                    if c >= "a" and c <= "z":
+                        ok = True
 
-            if not ok:
-                continue
+                if not ok:
+                    continue
 
-            if w in word_count.keys():
-                word_count[w] += 1
-            else:
-                word_count[w] = 1
+                if w in word_count.keys():
+                    word_count[w] += 1
+                else:
+                    word_count[w] = 1
     return word_count
 
-
-def najpopularniejsze(slowo, pol_ang, word_count):
+def most_popular(word, pol_eng, word_count):
     max_cnt = 0
-    for w in pol_ang[slowo]:
+    for w in pol_eng[word]:
         if w in word_count and word_count[w] > max_cnt:
             max_cnt = word_count[w]
 
     max_list = []
-    for w in pol_ang[slowo]:
+    for w in pol_eng[word]:
         if w in word_count and word_count[w] == max_cnt:
             max_list += [w]
 
@@ -54,25 +53,22 @@ def najpopularniejsze(slowo, pol_ang, word_count):
 
     return max_list[n]
 
-
-def tlumacz(polskie, pol_ang, word_count):
-    wynik = []
-    for p in polskie:
-        if p in pol_ang:
-            wynik.append(najpopularniejsze(p, pol_ang, word_count))
+def translate(polish_words, pol_eng, word_count):
+    result = []
+    for word in polish_words:
+        if word in pol_eng:
+            result.append(most_popular(word, pol_eng, word_count))
         else:
-            wynik.append("[" + p + "]")
-    return wynik
-
+            result.append("[" + word + "]")
+    return result
 
 def main():
-    pol_ang = create_pol_ang()
+    pol_eng = create_pol_eng()
     word_count = create_word_count()
 
-    zdanie = "chłopiec z dziewczyna pójść do kino".split()
+    sentence = "chłopiec i dziewczynka pójść do sklepu".split()
 
-    print(" ".join(tlumacz(zdanie, pol_ang, word_count)))
-
+    print(" ".join(translate(sentence, pol_eng, word_count)))
 
 if __name__ == "__main__":
     main()

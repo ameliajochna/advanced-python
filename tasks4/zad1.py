@@ -6,7 +6,7 @@ ROWS = 80
 COLUMNS = 80
 
 
-def square(size, t):
+def draw_square(size, t):
     t.begin_fill()
     for _ in range(4):
         t.forward(size)
@@ -14,11 +14,11 @@ def square(size, t):
     t.end_fill()
 
 
-def brightness(color, bright):
+def adjust_brightness(color, brightness_value):
     r, g, b = color
-    r = min(max(0, r + bright * 0.3), 1)
-    g = min(max(0, g + bright * 0.3), 1)
-    b = min(max(0, b + bright * 0.3), 1)
+    r = min(max(0, r + brightness_value * 0.3), 1)
+    g = min(max(0, g + brightness_value * 0.3), 1)
+    b = min(max(0, b + brightness_value * 0.3), 1)
     return (r, g, b)
 
 
@@ -28,16 +28,16 @@ def draw_board(t):
             color = (random.random(), random.random(), random.random())
             if c // (COLUMNS / 4) % 2 == 1:
                 if (r // (ROWS / 4)) % 2 == 1:
-                    t.fillcolor(brightness(color, 1))
+                    t.fillcolor(adjust_brightness(color, 1))
                 else:
-                    t.fillcolor(brightness(color, -1))
+                    t.fillcolor(adjust_brightness(color, -1))
             else:
                 if (r // (ROWS / 4)) % 2 == 0:
-                    t.fillcolor(brightness(color, 1))
+                    t.fillcolor(adjust_brightness(color, 1))
                 else:
-                    t.fillcolor(brightness(color, -1))
+                    t.fillcolor(adjust_brightness(color, -1))
 
-            square(SQUARE_SIZE, t)
+            draw_square(SQUARE_SIZE, t)
 
             t.penup()
             t.forward(SQUARE_SIZE)
@@ -63,7 +63,7 @@ def main():
     t.goto(-300, 250)
     t.pendown()
 
-    draw_board()
+    draw_board(t)
 
     screen.mainloop()
 

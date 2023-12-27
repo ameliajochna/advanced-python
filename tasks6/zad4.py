@@ -1,13 +1,17 @@
 def divide(s):
-    s += " "
-    arr = []
-    cur_word = ""
-    for c in s:
-        if c == " ":
-            if cur_word != "":
-                arr.append(cur_word)
-                cur_word = ""
-        else:
-            cur_word += c
+    words = []
+    current_word = ""
 
-    return arr
+    for char in s:
+        if char.isspace():
+            if current_word:
+                words.append(current_word)
+                current_word = ""
+        else:
+            current_word += char
+
+    return words
+
+sentence = "This is an example sentence."
+result = divide(sentence)
+print(result)

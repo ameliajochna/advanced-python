@@ -1,11 +1,11 @@
-def remove_brackets(tekst):
-    bracket = False
-    wynik = ""
-    for t in tekst:
+def remove_brackets(text):
+    in_bracket = False
+    result = ""
+    for t in text:
         if t == "(":
-            bracket = True
+            in_bracket = True
         elif t == ")":
-            bracket = False
-        elif not bracket:
-            wynik += t
-    return wynik
+            in_bracket = False
+        elif not in_bracket:
+            result += t
+    return result

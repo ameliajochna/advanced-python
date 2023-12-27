@@ -6,7 +6,7 @@ SQUARE_WIDTH = 50
 
 def square(a, color, t):
     t.pencolor(int(color[0]), int(color[1]), int(color[2]))
-    t.color(int(color[0]), int(color[1]), int(color[2]))
+    t.fillcolor(int(color[0]), int(color[1]), int(color[2]))
     t.begin_fill()
     for _ in range(4):
         t.forward(a)
@@ -25,7 +25,6 @@ def randomize(content):
     for t in content:
         if cur_len == row_len:
             ans += [[cur_row]]
-            print("ROW:", cur_row)
             cur_len = 0
             cur_row = ""
 
@@ -38,21 +37,20 @@ def randomize(content):
 
 
 def read_file(path, t):
-    f = open(path)
-    content = randomize(f.read())
-    for line in content:
-        arr = line[0].split(" ")
-        print(arr)
-        for w in arr:
-            square(SQUARE_WIDTH, eval(w), t)
-            t.forward(SQUARE_WIDTH)
+    with open(path, 'r') as file:
+        content = randomize(file.read())
+        for line in content:
+            arr = line[0].split(" ")
+            for w in arr:
+                square(SQUARE_WIDTH, eval(w), t)
+                t.forward(SQUARE_WIDTH)
 
-        t.penup()
-        t.backward(SQUARE_WIDTH * len(arr))
-        t.right(90)
-        t.forward(SQUARE_WIDTH)
-        t.left(90)
-        t.pendown()
+            t.penup()
+            t.backward(SQUARE_WIDTH * len(arr))
+            t.right(90)
+            t.forward(SQUARE_WIDTH)
+            t.left(90)
+            t.pendown()
 
 
 def main():

@@ -1,44 +1,31 @@
-FILE_PATH = "popular_words.txt"
+FILE_PATH = "../tasks6/popular_words.txt"
 
 
 def get_words():
-    f = open(FILE_PATH)
-    return dict.fromkeys(f.read().split())
+    with open(FILE_PATH, encoding="utf-8") as f:
+        return set(f.read().split())
+
+
+def contains_polish_chars(word):
+    polish_chars = set("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ")
+    return any(char in polish_chars for char in word)
 
 
 def longest_seg_without_polish_chars(text, polish_words):
     cur_seg = ""
     longest_seg = ""
-    polish_chars = set("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ")
-    text = text.replace("\n", " ").split(" ")
 
-    for word in text:
+    for word in text.split():
         if len(longest_seg) < len(cur_seg):
             longest_seg = cur_seg
-            print(cur_seg, "\n")
 
-        word_ok = True
-        only_letters = ""
-        for char in word:
-            if char in polish_chars:
-                word_ok = False
-            if (char > "a" and char < "z") or (char > "A" and char < "Z"):
-                only_letters += char
-
-        if only_letters not in polish_words:
-            word_ok = False
-
-        if not word_ok:
+        if contains_polish_chars(word) or word.lower() not in polish_words:
             cur_seg = ""
         else:
             cur_seg += word + " "
 
     if len(longest_seg) < len(cur_seg):
         longest_seg = cur_seg
-        if cur_seg not in longest_seg:
-            print(
-                "NOWY ",
-            )
 
     return longest_seg
 
@@ -50,7 +37,8 @@ def read_file(path, polish_words):
 
 
 def main():
-    read_file("lalka.txt", get_words())
+    polish_words = get_words()
+    read_file("lalka.txt", polish_words)
 
 
 if __name__ == "__main__":

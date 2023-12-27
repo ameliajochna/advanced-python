@@ -1,40 +1,40 @@
 import math
 
 
-def czy_pierwsza(n):
+def is_prime(n):
     for i in range(2, int(math.sqrt(n) + 2)):
         if n % i == 0:
             return False
     return True
 
 
-def czy_szczesliwa(liczba, cyfra, podrzad):
-    if not czy_pierwsza(liczba):
+def is_happy_number(number, digit, consecutive):
+    if not is_prime(number):
         return False
-    licz = 0
-    for c in str(liczba):
-        if int(c) == cyfra:
-            licz += 1
+    count = 0
+    for c in str(number):
+        if int(c) == digit:
+            count += 1
         else:
-            licz = 0
-        if licz == podrzad:
+            count = 0
+        if count == consecutive:
             return True
 
     return False
 
 
-def sprawdz(zakres):
-    licz = 0
-    for i in range(zakres + 1):
-        if czy_szczesliwa(i, 4, 2):
+def check_range(range_limit):
+    count = 0
+    for i in range(range_limit + 1):
+        if is_happy_number(i, 4, 2):
             print(i)
-            licz += 1
+            count += 1
 
-    print(licz)
+    print(count)
 
 
 def main():
-    sprawdz(100000)
+    check_range(100000)
 
 
 if __name__ == "__main__":

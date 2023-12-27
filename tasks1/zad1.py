@@ -6,13 +6,13 @@ def square(n):
 
 
 def square2(n):
-    for i in range(n):
+    for ind in range(n):
         print(n * "#")
 
 
 def main():
     for i in range(10):
-        print("Przebieg:", i)
+        print("Iteration:", i)
         print(20 * "-")
         if i < 5:
             square(3 + 2 * i)

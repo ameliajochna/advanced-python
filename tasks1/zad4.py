@@ -1,19 +1,19 @@
-from lista1.generate_fragments import generate_fragment
+from tasks1.generate_fragments import generate_fragment
 
 
-def generuj_haslo(n: int) -> str:
+def generate_password(n: int) -> str:
     if n == 0:
         return ""
 
-    frag = generate_fragment()
-    while len(frag) > n or n - len(frag) == 1:
-        frag = generate_fragment()
-    return generuj_haslo(n - len(frag)) + frag
+    fragment = generate_fragment()
+    while len(fragment) > n or n - len(fragment) == 1:
+        fragment = generate_fragment()
+    return generate_password(n - len(fragment)) + fragment
 
 
 def main():
     n = 17
-    print(generuj_haslo(n))
+    print(generate_password(n))
 
 
 if __name__ == "__main__":

@@ -1,24 +1,23 @@
 from zad2 import doable, use_letters
 
-
 def make_dict():
     pol_dict = {}
-    for x in open("popular_words.txt"):
-        x = x.strip()
-        pol = x
-        if pol not in pol_dict:
-            pol_dict[pol] = 0
+    with open("../tasks6/popular_words.txt") as file:
+        for line in file:
+            word = line.strip()
+            if word not in pol_dict:
+                pol_dict[word] = 0
     return pol_dict
 
 
 def find_puzzle(name, pol_dict):
     name = name.replace(" ", "").lower()
-    for w in pol_dict:
-        if doable(name, w):
-            new_base = use_letters(name, w)
-            for d in pol_dict:
-                if w < d and doable(new_base, d) and use_letters(new_base, d) == "":
-                    print(w, d)
+    for word in pol_dict:
+        if doable(name, word):
+            new_base = use_letters(name, word)
+            for other_word in pol_dict:
+                if word < other_word and doable(new_base, other_word) and use_letters(new_base, other_word) == "":
+                    print(word, other_word)
 
 
 def main():

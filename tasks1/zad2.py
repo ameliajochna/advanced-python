@@ -7,19 +7,19 @@ def main():
 
     for i in range(1, 101):
         digits_nr = fact_digits[i - 1]
-        print(f"{i}! ma {digits_nr} cyfr", end="")
+        print(f"{i}! has {digits_nr} digits", end="")
 
         last_digit = digits_nr % 10
         sec_last_digits = int((digits_nr % 100) / 10)
 
         if digits_nr == 1:
-            print("ę")
+            print(" digit")
         elif sec_last_digits == 1:
-            print("")
+            print(" digits")
         elif last_digit == 2 or last_digit == 3 or last_digit == 4:
-            print("y")
+            print(" digits")
         else:
-            print("")
+            print(" digits")
 
 
 if __name__ == "__main__":

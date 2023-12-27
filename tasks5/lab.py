@@ -25,7 +25,7 @@ def single_diamond(height, word):
     return arr
 
 
-def scal(arr1, arr2):
+def merge(arr1, arr2):
     arr3 = []
     for i in range(len(arr1)):
         arr3 += [arr1[i] + arr2[i]]
@@ -33,14 +33,14 @@ def scal(arr1, arr2):
 
 
 def word_diamonds(height, sentence):
-    wynik = []
+    result = []
     for w in sentence:
-        if wynik == []:
-            wynik = single_diamond(height, w)
+        if result == []:
+            result = single_diamond(height, w)
         else:
-            wynik = scal(wynik, single_diamond(height, w))
+            result = merge(result, single_diamond(height, w))
 
-    for w in wynik:
+    for w in result:
         for x in w:
             print(x, end="")
         print(" ")
@@ -54,7 +54,7 @@ def character_diamonds(height, count, char):
 
 
 def main():
-    word_diamonds(11, ["diament", "d", "word"])
+    word_diamonds(11, ["diamond", "d", "word"])
 
     character_diamonds(11, 4, "*")
 

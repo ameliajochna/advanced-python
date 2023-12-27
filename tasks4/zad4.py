@@ -1,32 +1,32 @@
-def erastotenes(max_n, prime):
-    prime[0] = False
-    prime[1] = False
+def sieve_of_eratosthenes(max_n, is_prime):
+    is_prime[0] = False
+    is_prime[1] = False
     for i in range(2, max_n):
-        if prime[i]:
+        if is_prime[i]:
             for k in range(2, (max_n + 1) // i):
-                prime[k * i] = False
+                is_prime[k * i] = False
 
 
-def czy_palindrom(n):
-    rev_n = str(n)[::-1]
-    return str(n) == rev_n
+def is_palindrome(n):
+    reversed_n = str(n)[::-1]
+    return str(n) == reversed_n
 
 
-def palindromy(a, b, prime, max_n):
-    licz = 0
+def palindromes(a, b, is_prime, max_n):
+    count = 0
     for i in range(a, b + 1):
-        licz += int(prime[i] and czy_palindrom(i))
-        if prime[i] and czy_palindrom(i):
+        count += int(is_prime[i] and is_palindrome(i))
+        if is_prime[i] and is_palindrome(i):
             print(i)
 
-    return licz
+    return count
 
 
 def main():
     max_n = 1001
-    prime = [True] * max_n
-    erastotenes(max_n, prime)
-    palindromy(0, 1000, prime, max_n)
+    is_prime = [True] * max_n
+    sieve_of_eratosthenes(max_n, is_prime)
+    palindromes(0, 1000, is_prime, max_n)
 
 
 if __name__ == "__main__":

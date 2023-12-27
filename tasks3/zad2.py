@@ -1,46 +1,46 @@
 import math
 
 
-def czy_pierwsza(n):
+def is_prime(n):
     for i in range(2, int(math.sqrt(n) + 2)):
         if n % i == 0:
             return False
     return True
 
 
-def sprawdz(numbers):
-    licz = 0
-    all = []
+def check_primes(numbers):
+    count = 0
+    all_primes = []
     for num in numbers:
-        if czy_pierwsza(num):
-            all.append(num)
-        licz += int(czy_pierwsza(num))
-    print(all)
-    return licz
+        if is_prime(num):
+            all_primes.append(num)
+        count += int(is_prime(num))
+    print(all_primes)
+    return count
 
 
-def generuj_liczby(dlugosc, cyfra, podrzad):
-    podstawa = str(cyfra) * podrzad
-    liczby = []
-    pozostalo = dlugosc - podrzad + 1
-    for liczba in range(0, 10**pozostalo):
-        strliczba = str(liczba)
-        if len(str(liczba)) != pozostalo:
-            strliczba = "0" * (pozostalo - len(strliczba)) + str(liczba)
+def generate_numbers(length, digit, consecutive):
+    base = str(digit) * consecutive
+    numbers = []
+    remaining = length - consecutive + 1
+    for number in range(0, 10**remaining):
+        str_number = str(number)
+        if len(str(number)) != remaining:
+            str_number = "0" * (remaining - len(str_number)) + str_number
 
-        for pt in range(len(strliczba) + 1):
-            l1 = strliczba[0:pt]
-            l2 = strliczba[pt:]
-            nowaliczba = int(l1 + podstawa + l2)
-            if len(str(nowaliczba)) == dlugosc + 1:
-                liczby.append(nowaliczba)
+        for pt in range(len(str_number) + 1):
+            l1 = str_number[0:pt]
+            l2 = str_number[pt:]
+            new_number = int(l1 + base + l2)
+            if len(str(new_number)) == length + 1:
+                numbers.append(new_number)
 
-    liczby = list(dict.fromkeys(liczby))
-    return liczby
+    numbers = list(dict.fromkeys(numbers))
+    return numbers
 
 
 def main():
-    print(sprawdz(generuj_liczby(9, 7, 7)))
+    print(check_primes(generate_numbers(9, 7, 7)))
 
 
 if __name__ == "__main__":

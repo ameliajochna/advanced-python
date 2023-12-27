@@ -1,66 +1,44 @@
 def divisors(n):
-    return [i for i in range(1, n) if n % i == 0]
+    return [i for i in range(1, n // 2 + 1) if n % i == 0]
 
-
-def prime(n):
+def primes(n):
     return [i for i in range(1, n) if len(divisors(i)) == 1]
 
-
-def composite(n):
+def composites(n):
     return [i for i in range(1, n) if len(divisors(i)) > 1]
 
-
-def div_sum(n):
+def sum_of_divisors(n):
     return sum(divisors(n))
 
+def is_perfect(n):
+    return sum_of_divisors(n) == n
 
-def perfect(n):
-    return [i for i in range(1, n) if div_sum(i) == i]
+def is_deficient(n):
+    return sum_of_divisors(n) < n
 
+def is_abundant(n):
+    return sum_of_divisors(n) > n
 
-def deficient(n):
-    return [i for i in range(1, n) if div_sum(i) < i]
-
-
-def abundant(n):
-    return [i for i in range(1, n) if div_sum(i) > i]
-
-
-def isperfect(n):
-    return div_sum(n) == n
-
-
-def isdeficient(n):
-    return div_sum(n) < n
-
-
-def isabundant(n):
-    return div_sum(n) > n
-
-
-def gen_list(n, fun):
-    return [i for i in range(1, n) if fun(i)]
-
+def generate_list(n, predicate):
+    return [i for i in range(1, n) if predicate(i)]
 
 def pythagorean_triplets(n):
     return [
-        (i, j, k) for k in range(1, n) for i in range(1, n) for j in range(1, n) if i < j and i * i + j * j == k * k
+        (i, j, k)
+        for k in range(1, n)
+        for i in range(1, n)
+        for j in range(1, n)
+        if i < j and i * i + j * j == k * k
     ]
 
-
 def main():
-    print("dzielniki 60: ", divisors(60))
-    print("dzielniki 37: ", divisors(37))
-    print("pierwsze mniejsze od 25: ", prime(25))
-    print("zlozone mniejsze od 20", composite(20))
-    print("liczby perfekcyjne do 15:", perfect(15))
-    print("liczby deficytowe do 15:", deficient(15))
-    print("liczby nadmiarowe do 15:", abundant(15))
-    print("liczby perfekcyjne do 15:", gen_list(15, isperfect))
-    print("liczby deficytowe do 15:", gen_list(15, isdeficient))
-    print("liczby nadmiarowe do 15:", gen_list(15, isabundant))
-    print("pitagorasowe do 30: ", pythagorean_triplets(30))
-
+    print("divisors of 60: ", divisors(60))
+    print("primes less than 25: ", primes(25))
+    print("composites less than 20", composites(20))
+    print("perfect numbers up to 15:", generate_list(15, is_perfect))
+    print("deficient numbers up to 15:", generate_list(15, is_deficient))
+    print("abundant numbers up to 15:", generate_list(15, is_abundant))
+    print("pythagorean triplets up to 30: ", pythagorean_triplets(30))
 
 if __name__ == "__main__":
     main()

@@ -1,19 +1,20 @@
 import random
 
+def random_permutation(n):
+    # Initialize a list with numbers from 0 to n-1
+    permutation = list(range(0, n))
 
-def randperm(n):
-    perm = list(range(0, n))
-
+    # Perform a Fisher-Yates shuffle to generate a random permutation
     for i in range(n):
         pos = random.randint(i, n - 1)
-        perm[pos], perm[i] = perm[i], perm[pos]
+        # Swap elements at positions i and pos
+        permutation[pos], permutation[i] = permutation[i], permutation[pos]
 
-    return perm
-
+    return permutation
 
 def main():
-    print(randperm(10**6))
-
+    # Generate and print a random permutation of numbers from 0 to 10^6 - 1
+    print(random_permutation(10**6))
 
 if __name__ == "__main__":
     main()

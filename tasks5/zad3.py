@@ -1,25 +1,22 @@
 import random
 import turtle
+from tasks2.big_numbers import give_number
 
-from lista5.big_numbers import give_number
-
-
-def kwadrat(size, t):
+def draw_square(size, t):
     t.begin_fill()
     for _ in range(4):
         t.forward(size)
         t.left(90)
     t.end_fill()
 
-
-def rysuj_liczbe(liczba, width, t):
-    for i in range(len(liczba)):
-        for j in range(len(liczba[i])):
+def draw_number(number, width, t):
+    for i in range(len(number)):
+        for j in range(len(number[i])):
             t.penup()
             t.forward(width / 5)
             t.pendown()
-            if liczba[i][j] == "#":
-                kwadrat(width / 5, t)
+            if number[i][j] == "#":
+                draw_square(width / 5, t)
 
         t.penup()
         t.backward(width)
@@ -34,30 +31,22 @@ def rysuj_liczbe(liczba, width, t):
     t.forward(int(6 / 5 * width))
     t.penup()
 
+def draw_numbers(numbers_str, t):
+    numbers = [int(num) for num in numbers_str]
 
-def wyznacz_liczby(liczby_str, t):
-    liczby = []
-    for num in liczby_str:
-        liczby.append(int(num))
-
-    for i in range(len(liczby)):
+    for i in range(len(numbers)):
         t.fillcolor(random.random(), random.random(), random.random())
-        rysuj_liczbe(give_number(liczby[i]), 100, t)
-
+        draw_number(give_number(numbers[i]), 100, t)
 
 def main():
-    t = turtle.Turtle()
-    screen = turtle.Screen()
+    with turtle.Screen() as screen:
+        t = turtle.Turtle()
+        t.penup()
+        t.goto(-300, 250)
+        t.pendown()
 
-    t.penup()
-    t.goto(-300, 250)
-    t.pendown()
-
-    liczba = "2560"
-    wyznacz_liczby(liczba, t)
-
-    screen.mainloop()
-
+        numbers_str = "2560"
+        draw_numbers(numbers_str, t)
 
 if __name__ == "__main__":
     main()

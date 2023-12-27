@@ -1,52 +1,53 @@
 import turtle
+from tasks2.big_numbers import give_number
 
-from lista6.big_numbers import give_number
 
-
-def kwadrat(size, t):
-    t.begin_fill()
+def draw_square(size):
+    turtle.begin_fill()
     for _ in range(4):
-        t.forward(size)
-        t.left(90)
-    t.end_fill()
+        turtle.forward(size)
+        turtle.left(90)
+    turtle.end_fill()
 
 
-def rysuj_liczbe(cyfra, width, t):
-    for i in range(len(cyfra)):
-        for j in range(len(cyfra[i])):
-            t.penup()
-            t.forward(width / 5)
-            t.pendown()
-            if cyfra[i][j] == "#":
-                kwadrat(width / 5)
+def draw_digit(digit, width):
+    for row in digit:
+        for _ in row:
+            turtle.penup()
+            turtle.forward(width / 5)
+            turtle.pendown()
+            if _ == "#":
+                draw_square(width / 5)
 
-        t.penup()
-        t.backward(width)
-        t.right(90)
-        t.forward(width / 5)
-        t.left(90)
-        t.pendown()
-    t.penup()
-    t.left(90)
-    t.forward(width)
-    t.right(90)
-    t.forward(int(6 / 5 * width))
-    t.penup()
+        turtle.penup()
+        turtle.backward(width)
+        turtle.right(90)
+        turtle.forward(width / 5)
+        turtle.left(90)
+        turtle.pendown()
+
+    turtle.penup()
+    turtle.left(90)
+    turtle.forward(width)
+    turtle.right(90)
+    turtle.forward(int(6 / 5 * width))
+    turtle.penup()
 
 
-def mozaika(t):
-    rysuj_liczbe(give_number(5), 100, t)
+def draw_mosaic(t):
+    digit_to_draw = give_number(5)
+    draw_digit(digit_to_draw, 100)
 
 
 def main():
-    t = turtle.Turtle()
+    turtle_obj = turtle.Turtle()
     screen = turtle.Screen()
 
-    t.penup()
-    t.goto(-300, 250)
-    t.pendown()
+    turtle_obj.penup()
+    turtle_obj.goto(-300, 250)
+    turtle_obj.pendown()
 
-    mozaika(t)
+    draw_mosaic(turtle_obj)
 
     screen.mainloop()
 

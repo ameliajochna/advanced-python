@@ -1,16 +1,17 @@
-from lista9.letters import doable, use_letters
+from tasks8.zad2 import doable, use_letters
 
 
-def make_dict():
+def make_dict(file_path="../tasks6/popular_words.txt"):
     pol_dict = {}
-    for x in open("popular_words.txt"):
-        x = x.strip()
-        pol = x
-        sorted_pol = ("").join(sorted(pol))
-        if sorted_pol not in pol_dict:
-            pol_dict[sorted_pol] = [pol]
-        else:
-            pol_dict[sorted_pol] += [pol]
+    with open(file_path, 'r') as file:
+        for x in file:
+            x = x.strip()
+            pol = x
+            sorted_pol = "".join(sorted(pol))
+            if sorted_pol not in pol_dict:
+                pol_dict[sorted_pol] = [pol]
+            else:
+                pol_dict[sorted_pol] += [pol]
     return pol_dict
 
 
