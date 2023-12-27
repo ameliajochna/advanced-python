@@ -8,13 +8,13 @@ def czy_pierwsza(n):
     return True
 
 
-def sprawdz(liczby):
+def sprawdz(numbers):
     licz = 0
     all = []
-    for l in liczby:
-        if czy_pierwsza(l):
-            all.append(l)
-        licz += int(czy_pierwsza(l))
+    for num in numbers:
+        if czy_pierwsza(num):
+            all.append(num)
+        licz += int(czy_pierwsza(num))
     print(all)
     return licz
 

@@ -37,8 +37,8 @@ def rysuj_liczbe(liczba, width, t):
 
 def wyznacz_liczby(liczby_str, t):
     liczby = []
-    for l in liczby_str:
-        liczby.append(int(l))
+    for num in liczby_str:
+        liczby.append(int(num))
 
     for i in range(len(liczby)):
         t.fillcolor(random.random(), random.random(), random.random())

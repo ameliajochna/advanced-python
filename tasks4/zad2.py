@@ -1,12 +1,8 @@
 import random
 
-"""
-W tym programie znajduje sie kilka prostych funkcji demonstrujacych operacje na listach.
-
-[!] oznacza, ze w danym miejscu konieczne jest dopisanie (ew. zmiana) istniejacego kodu.
-
-Prawidlowy wynik dzialania programu znajduje sie na stronie KNO
-"""
+# W tym programie znajduje sie kilka prostych funkcji demonstrujacych operacje na listach.
+# [!] oznacza, ze w danym miejscu konieczne jest dopisanie (ew. zmiana) istniejacego kodu.
+# Prawidlowy wynik dzialania programu znajduje sie na stronie KNO
 
 
 def parzysta(n):
@@ -19,7 +15,7 @@ def parzysta(n):
 
 
 def suma1(L):
-    'Sumowanie elementow listy'
+    # 'Sumowanie elementow listy'
     wynik = 0
     for element in L:
         wynik += element
@@ -27,7 +23,7 @@ def suma1(L):
 
 
 def suma2(L):  # [!]
-    'Sumowanie elementow listy, iteracja po indeksach. W funkcji jest drobny blad.'
+    # 'Sumowanie elementow listy, iteracja po indeksach. W funkcji jest drobny blad.'
     wynik = 0  # zamiast L[0]
     for indeks in range(len(L)):
         wynik += L[indeks]
@@ -35,7 +31,7 @@ def suma2(L):  # [!]
 
 
 def suma_parzystych(L):  # [!]
-    'Suma parzystych elementow listy. W tej funkcji rowniez jest blad. Powinienes skorzystac z funkcji parzysta'
+    # 'Suma parzystych elementow listy. W tej funkcji rowniez jest blad. Powinienes skorzystac z funkcji parzysta'
 
     wynik = 0
     for element in L:
@@ -49,7 +45,7 @@ def suma_parzystych(L):  # [!]
 
 
 def ze_spacjami(n, k, znak):
-    "Jak liczba n zajmuje mniej niz k znakow, to dodaje z tylu odpowiednia liczbe spacji (lub znakow '_' do wyboru)"
+    # "Jak liczba n zajmuje mniej niz k znakow, to dodaje z tylu odpowiednia liczbe spacji (lub znakow '_' do wyboru)"
     s = str(n)
     if len(s) < k:
         for i in range(k - len(s)):
@@ -58,7 +54,7 @@ def ze_spacjami(n, k, znak):
 
 
 def histogram(L):
-    'Wypisuje histogram dla listy L. Liczba z gwiazdkami nie powinna sie sklejac, gwiazdki powinny zaczynac sie w czwartej kolumnie'
+    # 'Wypisuje histogram dla listy L. Liczba z gwiazdkami nie powinna sie sklejac, gwiazdki powinny zaczynac sie w czwartej kolumnie'
     for liczba in L:
         print(str(liczba) + ' ' + '*' * liczba)
 
@@ -69,20 +65,20 @@ def histogram(L):
 
 
 def powieksz_liczby(L):
-    'funkcja powieksza wszystkie elementy listy L. Nie zwraca niczego istotnego (wywolujemy ja jako procedure)'
+    # 'funkcja powieksza wszystkie elementy listy L. Nie zwraca niczego istotnego (wywolujemy ja jako procedure)'
     for i in range(len(L)):
         L[i] += 1
 
 
 def normalizuj(L):
-    'funkcja odejmuje od kazdego elementu listy L srednia wartosc wszystkich elementow tej listy'
+    # 'funkcja odejmuje od kazdego elementu listy L srednia wartosc wszystkich elementow tej listy'
     srednia = suma1(L) / len(L)
     for i in range(len(L)):
         L[i] -= srednia
 
 
 def znormalizowana(L):
-    'Funkcja zwraca znormalizowana liste. Powinna wykorzystac funkcje znormalizuj, nie moze zmieniac swojego argumentu. W funkcji jest blad.'
+    # 'Funkcja zwraca znormalizowana liste. Powinna wykorzystac funkcje znormalizuj, nie moze zmieniac swojego argumentu. W funkcji jest blad.'
     L1 = []
     for i in L:
         L1 += [i]
@@ -97,24 +93,29 @@ def znormalizowana(L):
 
 
 def powiekszone_parzyste_z_zerami(L):  # [!] drobny błąd
-    """Funkcja zwraca liste, w ktorej wszystkie parzyste liczby zostaja powiekszone o 1, a nieparzyste pominiete.
-    Dodatkowo w wyniku po kazdej liczbie dodany jest dodatkowy element, rowny 0
-    """
+    # Funkcja zwraca liste, w ktorej wszystkie parzyste liczby zostaja powiekszone o 1, a nieparzyste pominiete.
+    # Dodatkowo w wyniku po kazdej liczbie dodany jest dodatkowy element, rowny 0
     wynik = []
     for n in L:
         if parzysta(n):
             wynik.append(n + 1)  # Jesli wolisz: wynik += [n+1]
         wynik.append(0)  # Znowu, mozna: wynik += [0]
-    return wynik  # ????????????????
+    return wynik
 
 
 def madrzejsza(L):  # [!]
-    """Funkcja zwraca "madrzejsza" wersje listy L. Pomija w niej krotkie slowa (dlugosc <= 3), jako nie dosc madre,
-     dodatkowo po kazdym slowie dodaje jakies madre slowo z listy madrych slow.
-    Implementacja ponizej mocno rozmija sie ze specyfikacja.
-    """
+    # Funkcja zwraca "madrzejsza" wersje listy L. Pomija w niej krotkie slowa (dlugosc <= 3), jako nie dosc madre,
+    #  dodatkowo po kazdym slowie dodaje jakies madre slowo z listy madrych slow.
+    # Implementacja ponizej mocno rozmija sie ze specyfikacja.
 
-    madre_slowa = ['istotnie', 'zasadniczo', 'rudymentalnie', 'rustykalnie', 'radykalnie', 'hej']
+    madre_slowa = [
+        'istotnie',
+        'zasadniczo',
+        'rudymentalnie',
+        'rustykalnie',
+        'radykalnie',
+        'hej',
+    ]
 
     wynik = []
     for slowo in L:

@@ -2,9 +2,9 @@ def is_inside(x, y, n):
     return bool((x - n // 2) ** 2 + (y - n // 2) ** 2 <= (n // 2) ** 2)
 
 
-def circle(przesuniecie, n, usuniecie):
+def circle(shift, n, usuniecie):
     for i in range(usuniecie, n - usuniecie):
-        for j in range(przesuniecie):
+        for j in range(shift):
             print(' ', end='')
         for j in range(0, n):
             if is_inside(i, j, n):
@@ -15,8 +15,8 @@ def circle(przesuniecie, n, usuniecie):
 
 
 def snowman(lista):
-    for l in lista:
-        circle(int((lista[-1:][0] - l) / 2), l, 0)
+    for num in lista:
+        circle(int((lista[-1:][0] - num) / 2), num, 0)
 
 
 def main():
