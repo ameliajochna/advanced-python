@@ -2,6 +2,7 @@ from tasks8.zad2 import doable, use_letters
 
 FILE_PATH = "../tasks6/popular_words.txt"
 
+
 def make_dict():
     pol_dict = {}
     with open(FILE_PATH) as file:

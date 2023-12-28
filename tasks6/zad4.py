@@ -12,10 +12,12 @@ def divide(s):
 
     return words
 
+
 def main():
     sentence = "This is an example sentence."
     result = divide(sentence)
     print(result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
