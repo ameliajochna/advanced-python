@@ -5,7 +5,7 @@ import random
 # The correct program output can be found on the KNO page.
 
 
-def is_even(n):
+def is_even(n: int) -> bool:
     return n % 2 == 0
 
 
@@ -14,7 +14,7 @@ def is_even(n):
 #
 
 
-def sum1(L):
+def sum1(L: list) -> int:
     # 'Summing elements of the list'
     result = 0
     for element in L:
@@ -22,7 +22,7 @@ def sum1(L):
     return result
 
 
-def sum2(L):  # [!]
+def sum2(L: list) -> int:  # [!]
     # 'Summing elements of the list, iteration by indices. There is a minor mistake in the function.'
     result = 0  # instead of L[0]
     for index in range(len(L)):
@@ -30,7 +30,7 @@ def sum2(L):  # [!]
     return result
 
 
-def sum_even(L):  # [!]
+def sum_even(L: list) -> int:  # [!]
     # 'Sum of even elements in the list. There is also an error in this function. You should use the is_even function.'
 
     result = 0
@@ -44,7 +44,7 @@ def sum_even(L):  # [!]
 #
 
 
-def with_spaces(n, k, character):
+def with_spaces(n: int, k: int, character: str) -> str:
     # "If the number n takes up less than k characters, add the appropriate number of spaces (or '_' characters) to the end"
     s = str(n)
     if len(s) < k:
@@ -53,7 +53,7 @@ def with_spaces(n, k, character):
     return s
 
 
-def draw_histogram(L):
+def draw_histogram(L: list) -> None:
     # 'Prints a histogram for the list L. The number with asterisks should not concatenate; the asterisks should start in the fourth column'
     for number in L:
         print(str(number) + " " + "*" * number)
@@ -64,20 +64,20 @@ def draw_histogram(L):
 #
 
 
-def increment_numbers(L):
+def increment_numbers(L: list) -> None:
     # 'function increases all elements of list L. Does not return anything significant (we call it as a procedure)'
     for i in range(len(L)):
         L[i] += 1
 
 
-def normalize(L):
+def normalize(L: list) -> None:
     # 'function subtracts the average value of all elements of list L from each element'
     average = sum1(L) / len(L)
     for i in range(len(L)):
         L[i] -= average
 
 
-def normalized(L):
+def normalized(L: list) -> list:
     # 'The function returns a normalized list. It should use the normalize function, cannot modify its argument. There is an error in the function.'
     L1 = []
     for i in L:
@@ -92,7 +92,7 @@ def normalized(L):
 #
 
 
-def increased_even_with_zeros(L):  # [!] minor error
+def increased_even_with_zeros(L: list) -> list:  # [!] minor error
     # The function returns a list in which all even numbers are increased by 1, and odd ones are omitted.
     # Additionally, after each number, an additional element equal to 0 is added.
     result = []
@@ -103,7 +103,7 @@ def increased_even_with_zeros(L):  # [!] minor error
     return result
 
 
-def smarter_version(L):  # [!]
+def smarter_version(L: list) -> list:  # [!]
     # The function returns a "smarter" version of the list L. It skips short words (length <= 3) as not smart enough,
     # additionally, after each word, it adds some smart word from the list of smart words.
     # The implementation below deviates significantly from the specification.

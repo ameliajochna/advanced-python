@@ -1,5 +1,5 @@
-def make_dictionary(word):
-    ans = dict()
+def make_dictionary(word: str) -> dict:
+    ans = {}  # type: ignore[var-annotated]
     for c in word:
         key = c
         if key in ans:
@@ -9,7 +9,7 @@ def make_dictionary(word):
     return ans
 
 
-def use_letters(base, word):
+def use_letters(base: str, word: str) -> str:
     with_letters_count = make_dictionary(base)
 
     for c in word:
@@ -23,7 +23,7 @@ def use_letters(base, word):
     return ans
 
 
-def doable(base, word):
+def doable(base: str, word: str) -> bool:
     with_letters_count = make_dictionary(base)
 
     for c in word:
@@ -35,7 +35,7 @@ def doable(base, word):
     return True
 
 
-def main():
+def main() -> None:
     print(doable("promotion", "nopro"))
     print(doable("promotion", "lotion"))
 

@@ -1,7 +1,7 @@
 import math
 
 
-def prime_divisors(n):
+def prime_divisors(n: int) -> set:
     divisors = set()
 
     for divisor in range(2, math.ceil(math.sqrt(n)) + 1):

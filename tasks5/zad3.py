@@ -4,7 +4,7 @@ import turtle
 from tasks2.big_numbers import give_number
 
 
-def draw_square(size, t):
+def draw_square(size: int, t: turtle.Turtle) -> None:
     t.begin_fill()
     for _ in range(4):
         t.forward(size)
@@ -12,14 +12,14 @@ def draw_square(size, t):
     t.end_fill()
 
 
-def draw_number(number, width, t):
+def draw_number(number: list, width: int, t: turtle.Turtle) -> None:
     for i in range(len(number)):
         for j in range(len(number[i])):
             t.penup()
             t.forward(width / 5)
             t.pendown()
             if number[i][j] == "#":
-                draw_square(width / 5, t)
+                draw_square(width // 5, t)
 
         t.penup()
         t.backward(width)
@@ -35,7 +35,7 @@ def draw_number(number, width, t):
     t.penup()
 
 
-def draw_numbers(numbers_str, t):
+def draw_numbers(numbers_str: str, t: turtle.Turtle) -> None:
     numbers = [int(num) for num in numbers_str]
 
     for i in range(len(numbers)):
@@ -43,7 +43,7 @@ def draw_numbers(numbers_str, t):
         draw_number(give_number(numbers[i]), 100, t)
 
 
-def main():
+def main() -> None:
     turtle.Screen()
 
     t = turtle.Turtle()

@@ -2,7 +2,7 @@ import math
 import turtle
 
 
-def draw_rectangle(a, b, rotation, t):
+def draw_rectangle(a: int, b: int, rotation: int, t: turtle.Turtle) -> None:
     t.left(rotation)
     t.forward(a)
     t.left(rotation)
@@ -13,7 +13,7 @@ def draw_rectangle(a, b, rotation, t):
     t.forward(b)
 
 
-def draw_sinusoidal_wave(t):
+def draw_sinusoidal_wave(t: turtle.Turtle) -> None:
     for i in range(0, 360, 5):
         val = int(200 * math.sin(math.radians(i)))
         print(val)
@@ -21,7 +21,7 @@ def draw_sinusoidal_wave(t):
         t.forward(5)
 
 
-def main():
+def main() -> None:
     turtle.Screen()
     t = turtle.Turtle()
     t.speed(0)

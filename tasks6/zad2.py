@@ -1,12 +1,12 @@
 FILE_PATH = "../tasks6/popular_words.txt"
 
 
-def get_words():
+def get_words() -> set:
     with open(FILE_PATH) as file:
         return set(file.read().split())
 
 
-def find_paired_words():
+def find_paired_words() -> None:
     unique_words = get_words()
     paired_words = set()
 
@@ -18,7 +18,7 @@ def find_paired_words():
     print(sorted(list(paired_words)))
 
 
-def main():
+def main() -> None:
     find_paired_words()
 
 

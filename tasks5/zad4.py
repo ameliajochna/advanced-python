@@ -1,8 +1,8 @@
-def remove_duplicates(input_list):
+def remove_duplicates(input_list: list) -> list:
     indexed_list = [(value, index) for index, value in enumerate(input_list)]
     indexed_list.sort()
 
-    unique_list = []
+    unique_list = []  # type: ignore[var-annotated]
 
     for item in indexed_list:
         if not unique_list or unique_list[-1][1] != item[0]:
@@ -14,7 +14,7 @@ def remove_duplicates(input_list):
     return result
 
 
-def main():
+def main() -> None:
     input_list = [1, 2, 3, 1, 2, 3, 8, 2, 2, 2, 9, 9, 4]
     print(remove_duplicates(input_list))
 

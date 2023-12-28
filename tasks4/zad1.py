@@ -6,7 +6,7 @@ ROWS = 80
 COLUMNS = 80
 
 
-def draw_square(size, t):
+def draw_square(size: int, t: turtle.Turtle) -> None:
     t.begin_fill()
     for _ in range(4):
         t.forward(size)
@@ -14,7 +14,7 @@ def draw_square(size, t):
     t.end_fill()
 
 
-def adjust_brightness(color, brightness_value):
+def adjust_brightness(color: tuple, brightness_value: int) -> tuple:
     r, g, b = color
     r = min(max(0, r + brightness_value * 0.3), 1)
     g = min(max(0, g + brightness_value * 0.3), 1)
@@ -22,7 +22,7 @@ def adjust_brightness(color, brightness_value):
     return (r, g, b)
 
 
-def draw_board(t):
+def draw_board(t: turtle.Turtle) -> None:
     for c in range(COLUMNS):
         for r in range(ROWS):
             color = (random.random(), random.random(), random.random())
@@ -51,7 +51,7 @@ def draw_board(t):
         t.pendown()
 
 
-def main():
+def main() -> None:
     t = turtle.Turtle()
     screen = turtle.Screen()
 

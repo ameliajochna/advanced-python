@@ -1,4 +1,4 @@
-def sieve_of_eratosthenes(max_n, is_prime):
+def sieve_of_eratosthenes(max_n: int, is_prime: list) -> None:
     is_prime[0] = False
     is_prime[1] = False
     for i in range(2, max_n):
@@ -7,12 +7,12 @@ def sieve_of_eratosthenes(max_n, is_prime):
                 is_prime[k * i] = False
 
 
-def is_palindrome(n):
+def is_palindrome(n: int) -> bool:
     reversed_n = str(n)[::-1]
     return str(n) == reversed_n
 
 
-def palindromes(a, b, is_prime, max_n):
+def palindromes(a: int, b: int, is_prime: list, max_n: int) -> int:
     count = 0
     for i in range(a, b + 1):
         count += int(is_prime[i] and is_palindrome(i))
@@ -22,7 +22,7 @@ def palindromes(a, b, is_prime, max_n):
     return count
 
 
-def main():
+def main() -> None:
     max_n = 1001
     is_prime = [True] * max_n
     sieve_of_eratosthenes(max_n, is_prime)

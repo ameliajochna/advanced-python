@@ -9,7 +9,7 @@ MAP_SIZE = 100
 SQUARE_WIDTH = 10
 
 
-def square(a, color, t):
+def square(a: int, color: str | tuple, t: turtle.Turtle) -> None:
     """Draw a colored square of side length 'a' using the turtle 't'."""
     t.pencolor(color)
     t.color(color)
@@ -20,7 +20,7 @@ def square(a, color, t):
     t.end_fill()
 
 
-def generate_map():
+def generate_map() -> list:
     """Generate a random matrix representing the map."""
     matrix = [[0.0] * MAP_SIZE for _ in range(MAP_SIZE)]
     n = 200
@@ -57,7 +57,7 @@ def generate_map():
     return matrix
 
 
-def draw_map(matrix, t):
+def draw_map(matrix: list, t: turtle.Turtle) -> None:
     """Draw the map using the turtle 't'."""
     for i in range(MAP_SIZE):
         for j in range(MAP_SIZE):
@@ -73,7 +73,7 @@ def draw_map(matrix, t):
         t.pendown()
 
 
-def main():
+def main() -> None:
     t = turtle.Turtle()
     screen = turtle.Screen()
 

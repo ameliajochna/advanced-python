@@ -1,4 +1,4 @@
-def divide(s):
+def divide(s: str) -> list:
     words = []
     current_word = ""
 
@@ -13,7 +13,7 @@ def divide(s):
     return words
 
 
-def main():
+def main() -> None:
     sentence = "This is an example sentence."
     result = divide(sentence)
     print(result)

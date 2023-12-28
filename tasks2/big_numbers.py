@@ -110,7 +110,7 @@ question_mark = """
 """
 
 
-def fix(s):
+def fix(s: str) -> list:
     L = s.split("\n")
     for i in range(len(L)):
         if len(L[i]) < 5:
@@ -120,7 +120,7 @@ def fix(s):
     return L[1:-1]
 
 
-def give_number(n):
+def give_number(n: int) -> list:
     if n not in range(10):
         return fix(question_mark)
     return fix(digits[n])

@@ -1,14 +1,14 @@
 import math
 
 
-def is_prime(n):
+def is_prime(n: int) -> bool:
     for i in range(2, int(math.sqrt(n) + 2)):
         if n % i == 0:
             return False
     return True
 
 
-def check_primes(numbers):
+def check_primes(numbers: list) -> int:
     count = 0
     all_primes = []
     for num in numbers:
@@ -19,7 +19,7 @@ def check_primes(numbers):
     return count
 
 
-def generate_numbers(length, digit, consecutive):
+def generate_numbers(length: int, digit: int, consecutive: int) -> list:
     base = str(digit) * consecutive
     numbers = []
     remaining = length - consecutive + 1
@@ -39,7 +39,7 @@ def generate_numbers(length, digit, consecutive):
     return numbers
 
 
-def main():
+def main() -> None:
     print(check_primes(generate_numbers(9, 7, 7)))
 
 

@@ -1,36 +1,39 @@
-def divisors(n):
+from collections.abc import Callable
+
+
+def divisors(n: int) -> list:
     return [i for i in range(1, n // 2 + 1) if n % i == 0]
 
 
-def primes(n):
+def primes(n: int) -> list:
     return [i for i in range(1, n) if len(divisors(i)) == 1]
 
 
-def composites(n):
+def composites(n: int) -> list:
     return [i for i in range(1, n) if len(divisors(i)) > 1]
 
 
-def sum_of_divisors(n):
+def sum_of_divisors(n: int) -> int:
     return sum(divisors(n))
 
 
-def is_perfect(n):
+def is_perfect(n: int) -> bool:
     return sum_of_divisors(n) == n
 
 
-def is_deficient(n):
+def is_deficient(n: int) -> bool:
     return sum_of_divisors(n) < n
 
 
-def is_abundant(n):
+def is_abundant(n: int) -> bool:
     return sum_of_divisors(n) > n
 
 
-def generate_list(n, predicate):
+def generate_list(n: int, predicate: Callable) -> list:
     return [i for i in range(1, n) if predicate(i)]
 
 
-def pythagorean_triplets(n):
+def pythagorean_triplets(n: int) -> list:
     return [
         (
             i,
@@ -44,7 +47,7 @@ def pythagorean_triplets(n):
     ]
 
 
-def main():
+def main() -> None:
     print("divisors of 60: ", divisors(60))
     print("primes less than 25: ", primes(25))
     print("composites less than 20", composites(20))

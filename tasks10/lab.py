@@ -6,7 +6,7 @@ import os
 import numpy
 
 
-def fix_types(db):
+def fix_types(db: dict) -> dict:
     int_keys = ["id", "age", "user_id", "movie_id"]
     float_keys = ["score"]
     date_keys = ["release_date"]
@@ -30,8 +30,8 @@ def fix_types(db):
     return db
 
 
-def create_database(directory_path):
-    db = {}
+def create_database(directory_path: str) -> dict:
+    db = dict()
     for filename in os.listdir(directory_path):
         file_path = f"{directory_path}/{filename}"
         with open(file_path, encoding="utf-8-sig") as file:
@@ -44,19 +44,19 @@ def create_database(directory_path):
     return db
 
 
-def get_movie(id, db):
-    return db["movies"][id]
+def get_movie(id: int, db: dict) -> str:
+    return db["movies"][id]  # type: ignore[no-any-return]
 
 
-def get_genre(id, db):
-    return db["genres"][id]
+def get_genre(id: int, db: dict) -> str:
+    return db["genres"][id]  # type: ignore[no-any-return]
 
 
-def get_user(id, db):
-    return db["users"][id]
+def get_user(id: int, db: dict) -> str:
+    return db["users"][id]  # type: ignore[no-any-return]
 
 
-def get_release_list(db):
+def get_release_list(db: dict) -> list:
     table = db["movies"]
     release_title = []
     for id, movie_data in table.items():
@@ -64,17 +64,17 @@ def get_release_list(db):
     return sorted(release_title)
 
 
-def est_movie(type, db):
+def est_movie(type: str, db: dict) -> str:
     release_list = get_release_list(db)
     if type == "oldest":
-        return release_list[0]
-    if type == "latest":
-        return release_list[-1]
+        return release_list[0]  # type: ignore[no-any-return]
+    else:
+        return release_list[-1]  # type: ignore[no-any-return]
 
 
-def get_avg_score(db):
+def get_avg_score(db: dict) -> list:
     table = db["votes"]
-    score_dict = {}
+    score_dict = {}  # type: ignore[var-annotated]
     for id, vote_data in table.items():
         vote = [vote_data["score"]]
         movie_id = vote_data["movie_id"]
@@ -100,15 +100,15 @@ def get_avg_score(db):
     return sorted(title_avg)
 
 
-def est_score(type, db):
+def est_score(type: str, db: dict) -> list:
     score_arr = get_avg_score(db)
     if type == "highest":
-        return score_arr[-1]
-    elif type == "lowest":
-        return score_arr[0]
+        return score_arr[-1]  # type: ignore[no-any-return]
+    else:
+        return score_arr[0]  # type: ignore[no-any-return]
 
 
-def add_mentions_count(db):
+def add_mentions_count(db: dict) -> None:
     for genre_id, genre_data in db["genres"].items():
         count = 0
         table = db["movies"]
@@ -119,22 +119,22 @@ def add_mentions_count(db):
         db["genres"][genre_id]["mentions"] = count
 
 
-def get_mentions_arr(db):
+def get_mentions_arr(db: dict) -> list:
     arr = []
     for genre_id, genre_data in db["genres"].items():
         arr += [[genre_data["mentions"], genre_data["name"]]]
     return sorted(arr)
 
 
-def est_mentioned(type, db):
+def est_mentioned(type: str, db: dict) -> list:
     arr = get_mentions_arr(db)
     if type == "most":
-        return arr[0]
-    elif type == "least":
-        return arr[-1]
+        return arr[0]  # type: ignore[no-any-return]
+    else:
+        return arr[-1]  # type: ignore[no-any-return]
 
 
-def main():
+def main() -> None:
     db = create_database("database")
     print(
         f"The oldest movie in the database is: {est_movie('oldest', db)[1]}, year of production: {est_movie('oldest', db)[0]}"

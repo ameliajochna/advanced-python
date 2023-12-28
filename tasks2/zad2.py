@@ -1,4 +1,4 @@
-def envelope(n: int):
+def envelope(n: int) -> None:
     print("*" * (2 * n + 1))
 
     for i in range(0, n - 1):
@@ -11,7 +11,7 @@ def envelope(n: int):
     print("*" * (2 * n + 1))
 
 
-def main():
+def main() -> None:
     envelope(10)
 
 

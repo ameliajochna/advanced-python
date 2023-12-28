@@ -1,4 +1,4 @@
-def single_diamond(height, word):
+def single_diamond(height: int, word: list) -> list:
     arr = []
     for i in range(1, height + 1, 2):
         cur_arr = []
@@ -25,15 +25,15 @@ def single_diamond(height, word):
     return arr
 
 
-def merge(arr1, arr2):
+def merge(arr1: list, arr2: list) -> list:
     arr3 = []
     for i in range(len(arr1)):
         arr3 += [arr1[i] + arr2[i]]
     return arr3
 
 
-def word_diamonds(height, sentence):
-    result = []
+def word_diamonds(height: int, sentence: list) -> None:
+    result = []  # type: ignore[var-annotated]
     for w in sentence:
         if result == []:
             result = single_diamond(height, w)
@@ -46,14 +46,14 @@ def word_diamonds(height, sentence):
         print(" ")
 
 
-def character_diamonds(height, count, char):
+def character_diamonds(height: int, count: int, char: str) -> None:
     arr = []
     for _ in range(count):
         arr += [char]
     word_diamonds(height, arr)
 
 
-def main():
+def main() -> None:
     word_diamonds(11, ["diamond", "d", "word"])
 
     character_diamonds(11, 4, "*")

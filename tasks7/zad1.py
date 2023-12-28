@@ -3,7 +3,7 @@ import turtle
 SQUARE_WIDTH = 10
 
 
-def square(a, color, t):
+def square(a: int, color: tuple, t: turtle.Turtle) -> None:
     t.pencolor(int(color[0]), int(color[1]), int(color[2]))
     t.fillcolor(int(color[0]), int(color[1]), int(color[2]))
     t.begin_fill()
@@ -13,7 +13,7 @@ def square(a, color, t):
     t.end_fill()
 
 
-def read_file(path, t):
+def read_file(path: str, t: turtle.Turtle) -> None:
     with open(path) as file:
         content = file.read().split("\n")
         for line in content:
@@ -30,7 +30,7 @@ def read_file(path, t):
             t.pendown()
 
 
-def main():
+def main() -> None:
     t = turtle.Turtle()
     screen = turtle.Screen()
     t.penup()

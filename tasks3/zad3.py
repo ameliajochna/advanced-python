@@ -1,4 +1,4 @@
-def remove_brackets(text):
+def remove_brackets(text: str) -> str:
     in_bracket = False
     result = ""
     for t in text:

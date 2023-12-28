@@ -1,17 +1,17 @@
 FILE_PATH = "../tasks6/popular_words.txt"
 
 
-def get_words():
+def get_words() -> set:
     with open(FILE_PATH, encoding="utf-8") as f:
         return set(f.read().split())
 
 
-def contains_polish_chars(word):
+def contains_polish_chars(word: str) -> bool:
     polish_chars = set("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ")
     return any(char in polish_chars for char in word)
 
 
-def longest_seg_without_polish_chars(text, polish_words):
+def longest_seg_without_polish_chars(text: str, polish_words: set) -> str:
     cur_seg = ""
     longest_seg = ""
 
@@ -30,13 +30,13 @@ def longest_seg_without_polish_chars(text, polish_words):
     return longest_seg
 
 
-def read_file(path, polish_words):
+def read_file(path: str, polish_words: set) -> None:
     with open(path, encoding="utf-8") as file:
         content = file.read()
         print(longest_seg_without_polish_chars(content, polish_words))
 
 
-def main():
+def main() -> None:
     polish_words = get_words()
     read_file("lalka.txt", polish_words)
 

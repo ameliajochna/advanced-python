@@ -5,7 +5,7 @@ SX = -100
 SY = 0
 
 
-def square(x, y, colour):
+def square(x: int, y: int, colour: str) -> None:
     turtle.fillcolor(colour)
     turtle.pu()
     turtle.goto(SX + x * SIDE_LENGTH, SY + y * SIDE_LENGTH)
@@ -17,7 +17,7 @@ def square(x, y, colour):
     turtle.end_fill()
 
 
-def main():
+def main() -> None:
     turtle.tracer(0, 1)
     turtle.speed("fastest")
     colours = ["red", "green", "blue"]

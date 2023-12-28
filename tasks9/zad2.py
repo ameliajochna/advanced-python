@@ -3,8 +3,8 @@ from tasks8.zad2 import doable, use_letters
 FILE_PATH = "../tasks6/popular_words.txt"
 
 
-def make_dict():
-    pol_dict = {}
+def make_dict() -> dict:
+    pol_dict = dict()
     with open(FILE_PATH) as file:
         for x in file:
             x = x.strip()
@@ -17,7 +17,7 @@ def make_dict():
     return pol_dict
 
 
-def find_puzzle(pol_dict, name):
+def find_puzzle(pol_dict: dict, name: str) -> None:
     name = name.replace(" ", "").lower()
     for w in pol_dict:
         if doable(name, w):
@@ -33,7 +33,7 @@ def find_puzzle(pol_dict, name):
                                         print(w1, d1, l2)
 
 
-def main():
+def main() -> None:
     pol_dict = make_dict()
     find_puzzle(pol_dict, "Bolek i lolek")
 

@@ -1,13 +1,13 @@
 from tasks2.big_numbers import give_number
 
 
-def join_numbers(number, digit):
+def join_numbers(number: list, digit: list) -> list:
     for i in range(len(number)):
         number[i] += " " + digit[i]
     return number
 
 
-def process_number(number_str):
+def process_number(number_str: str) -> None:
     number_arr = []
     for num in number_str:
         number_arr.append(int(num))
@@ -20,7 +20,7 @@ def process_number(number_str):
         print(r)
 
 
-def main():
+def main() -> None:
     process_number("12324")
 
 

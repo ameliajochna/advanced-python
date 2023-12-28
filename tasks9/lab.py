@@ -1,4 +1,4 @@
-def sum_calibration_values(text):
+def sum_calibration_values(text: list) -> int:
     # Extract digits from each word, sum the reversed pairs of digits, and calculate the total sum
     return sum(
         [
@@ -16,7 +16,7 @@ def sum_calibration_values(text):
     )
 
 
-def main():
+def main() -> None:
     with open("calibration.txt") as file:
         # Read lines from the file and calculate the sum of calibration values
         lines = file.read().splitlines()

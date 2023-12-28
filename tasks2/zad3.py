@@ -1,8 +1,8 @@
-def is_inside(x, y, n):
+def is_inside(x: int, y: int, n: int) -> bool:
     return bool((x - n // 2) ** 2 + (y - n // 2) ** 2 <= (n // 2) ** 2)
 
 
-def draw_circle(shift, n, removal):
+def draw_circle(shift: int, n: int, removal: int) -> None:
     for i in range(removal, n - removal):
         for j in range(shift):
             print(" ", end="")
@@ -14,12 +14,12 @@ def draw_circle(shift, n, removal):
         print("")
 
 
-def draw_snowman(sizes):
+def draw_snowman(sizes: list) -> None:
     for num in sizes:
         draw_circle(int((sizes[-1:][0] - num) / 2), num, 0)
 
 
-def main():
+def main() -> None:
     draw_snowman([15, 17, 23])
 
 

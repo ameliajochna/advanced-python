@@ -3,8 +3,8 @@ from tasks8.zad2 import doable, use_letters
 FILE_PATH = "../tasks6/popular_words.txt"
 
 
-def make_dict():
-    pol_dict = {}
+def make_dict() -> dict:
+    pol_dict = dict()
     with open(FILE_PATH) as file:
         for line in file:
             word = line.strip()
@@ -13,7 +13,7 @@ def make_dict():
     return pol_dict
 
 
-def find_puzzle(name, pol_dict):
+def find_puzzle(name: str, pol_dict: dict) -> None:
     name = name.replace(" ", "").lower()
     for word in pol_dict:
         if doable(name, word):
@@ -29,7 +29,7 @@ def find_puzzle(name, pol_dict):
                     print(word, other_word)
 
 
-def main():
+def main() -> None:
     pol_dict = make_dict()
     find_puzzle("Albert Einstein", pol_dict)
 

@@ -1,4 +1,4 @@
-def main():
+def main() -> None:
     fact_digits = []
     fact_value = 1
     for i in range(1, 101):

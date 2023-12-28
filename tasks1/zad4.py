@@ -11,7 +11,7 @@ def generate_password(n: int) -> str:
     return generate_password(n - len(fragment)) + fragment
 
 
-def main():
+def main() -> None:
     n = 17
     print(generate_password(n))
 

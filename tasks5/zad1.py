@@ -1,7 +1,7 @@
 import numpy
 
 
-def F(n):
+def F(n: float) -> list:
     if n == 1:
         return []
 
@@ -11,7 +11,7 @@ def F(n):
         return [int(3 * n + 1)] + F(3 * n + 1)
 
 
-def energia(a, b, output_file):
+def energy(a: int, b: int, output_file: str) -> None:
     with open(output_file, "w") as f:
         for i in range(a, b + 1):
             sequence_length = len(F(i))
@@ -24,8 +24,8 @@ def energia(a, b, output_file):
         f.write(f"MAX: {numpy.max(arr)}\n")
 
 
-def main():
-    energia(1, 10, "output.txt")
+def main() -> None:
+    energy(1, 10, "output.txt")
 
 
 if __name__ == "__main__":

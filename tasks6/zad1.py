@@ -3,7 +3,7 @@ import turtle
 from tasks2.big_numbers import give_number
 
 
-def draw_square(size):
+def draw_square(size: int) -> None:
     turtle.begin_fill()
     for _ in range(4):
         turtle.forward(size)
@@ -11,14 +11,14 @@ def draw_square(size):
     turtle.end_fill()
 
 
-def draw_digit(digit, width):
+def draw_digit(digit: list, width: int) -> None:
     for row in digit:
         for _ in row:
             turtle.penup()
             turtle.forward(width / 5)
             turtle.pendown()
             if _ == "#":
-                draw_square(width / 5)
+                draw_square(width // 5)
 
         turtle.penup()
         turtle.backward(width)
@@ -35,12 +35,12 @@ def draw_digit(digit, width):
     turtle.penup()
 
 
-def draw_mosaic():
+def draw_mosaic() -> None:
     digit_to_draw = give_number(5)
     draw_digit(digit_to_draw, 100)
 
 
-def main():
+def main() -> None:
     turtle_obj = turtle.Turtle()
     screen = turtle.Screen()
 
@@ -48,7 +48,7 @@ def main():
     turtle_obj.goto(-300, 250)
     turtle_obj.pendown()
 
-    draw_mosaic(turtle_obj)
+    draw_mosaic()
 
     screen.mainloop()
 

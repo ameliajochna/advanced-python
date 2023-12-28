@@ -1,7 +1,7 @@
 import turtle
 
 
-def rhomb(a, b, angle, t):
+def rhomb(a: int, b: int, angle: int, t: turtle.Turtle) -> None:
     t.left(angle)
     t.forward(a)
     t.left(180 - angle)
@@ -12,13 +12,13 @@ def rhomb(a, b, angle, t):
     t.forward(b)
 
 
-def flower(N, t):
+def flower(N: int, t: turtle.Turtle) -> None:
     for _ in range(N):
         rhomb(50, 50, 150, t)
         t.right(360 / N)
 
 
-def bouquet(n, t):
+def bouquet(n: str, t: turtle.Turtle) -> None:
     t.left(90)
     n = str(n)
     N = len(str(n))
@@ -37,7 +37,7 @@ def bouquet(n, t):
         t.rt(360 / N)
 
 
-def main():
+def main() -> None:
     t = turtle.Turtle()
     screen = turtle.Screen()
 
