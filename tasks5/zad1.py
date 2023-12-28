@@ -1,4 +1,4 @@
-import numpy as np
+import numpy
 
 
 def F(n):
@@ -18,10 +18,10 @@ def energia(a, b, output_file):
             f.write(f"{i}: {sequence_length}\n")
 
         arr = [len(F(i)) for i in range(a, b + 1)]
-        f.write(f"\nAVG: {np.average(arr)}\n")
-        f.write(f"MEDIAN: {np.median(arr)}\n")
-        f.write(f"MIN: {np.min(arr)}\n")
-        f.write(f"MAX: {np.max(arr)}\n")
+        f.write(f"\nAVG: {numpy.average(arr)}\n")
+        f.write(f"MEDIAN: {numpy.median(arr)}\n")
+        f.write(f"MIN: {numpy.min(arr)}\n")
+        f.write(f"MAX: {numpy.max(arr)}\n")
 
 
 def main():

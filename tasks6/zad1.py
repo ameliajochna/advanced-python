@@ -35,7 +35,7 @@ def draw_digit(digit, width):
     turtle.penup()
 
 
-def draw_mosaic(t):
+def draw_mosaic():
     digit_to_draw = give_number(5)
     draw_digit(digit_to_draw, 100)
 

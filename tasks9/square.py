@@ -1,44 +1,29 @@
-#################################################
-# kwadrat.py
-#################################################
+import turtle
 
-from turtle import (
-    begin_fill,
-    end_fill,
-    fd,
-    fillcolor,
-    goto,
-    pd,
-    pu,
-    rt,
-    speed,
-    tracer,
-)
-
-BOK = 15
+SIDE_LENGTH = 15
 SX = -100
 SY = 0
 
 
-def kwadrat(x, y, kolor):
-    fillcolor(kolor)
-    pu()
-    goto(SX + x * BOK, SY + y * BOK)
-    pd()
-    begin_fill()
+def square(x, y, colour):
+    turtle.fillcolor(colour)
+    turtle.pu()
+    turtle.goto(SX + x * SIDE_LENGTH, SY + y * SIDE_LENGTH)
+    turtle.pd()
+    turtle.begin_fill()
     for i in range(4):
-        fd(BOK)
-        rt(90)
-    end_fill()
+        turtle.fd(SIDE_LENGTH)
+        turtle.rt(90)
+    turtle.end_fill()
 
 
 def main():
-    tracer(0, 1)
-    speed("fastest")
-    kolory = ["red", "green", "blue"]
+    turtle.tracer(0, 1)
+    turtle.speed("fastest")
+    colours = ["red", "green", "blue"]
 
     for i in range(10):
-        kwadrat(i, i, kolory[i % 3])
+        square(i, i, colours[i % 3])
 
     input()
 

@@ -1,7 +1,7 @@
 import turtle
 
 
-def romb(a, b, angle, t):
+def rhomb(a, b, angle, t):
     t.left(angle)
     t.forward(a)
     t.left(180 - angle)
@@ -14,11 +14,11 @@ def romb(a, b, angle, t):
 
 def flower(N, t):
     for _ in range(N):
-        romb(50, 50, 150, t)
+        rhomb(50, 50, 150, t)
         t.right(360 / N)
 
 
-def bukiet(n, t):
+def bouquet(n, t):
     t.left(90)
     n = str(n)
     N = len(str(n))
@@ -44,7 +44,7 @@ def main():
     t.setposition(0, 0)
     t.speed(0)
 
-    bukiet("59257", t)
+    bouquet("59257", t)
 
     screen.mainloop()
 
